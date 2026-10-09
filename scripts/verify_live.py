@@ -50,7 +50,7 @@ with sync_playwright() as p:
         page.goto(BASE, wait_until='networkidle')
         page.wait_for_selector('.record')
         page.wait_for_function("document.body.innerText.includes('스프링클러 배관 나사 규격 정리')")
-        assert page.locator('.record').count() == 2, 'Expected two farm records'
+        assert page.locator('.record').count() == 3, 'Expected three farm public records'
         page.locator('#q').fill('스프링클러')
         assert page.locator('.record').count() == 2
         visible = page.locator('.record:visible')
@@ -89,7 +89,7 @@ with sync_playwright() as p:
         page.screenshot(path=str(ROOT / f'verified-{width}.png'), full_page=True)
         results['browser'].append({
             'viewport': [width,height],
-            'farmRecordCount': 2,
+            'farmRecordCount': 3,
             'sprinklerImages': 3,
             'viewerPreviousNext': True,
             'viewerKeyboard': True,
