@@ -8,7 +8,7 @@
       "slug": "20261009-herbicide-classification",
       "listTitle": "herbicide-guide-20261009.zip",
       "sourceTitle": "제초제 분류와 제품 비교 — 대화 전체 재정리",
-      "title": "herbicide-guide-20261009.zip",
+      "title": "제초제 분류와 제품 비교 — 대화 전체 재정리",
       "date": "2026-10-09",
       "dateBasis": "archive_created",
       "eventDate": null,
@@ -30,7 +30,10 @@
         "videos": 0,
         "audio": 0,
         "documents": 4
-      }
+      },
+      "titleSource": "user-override",
+      "inputName": "herbicide-guide-20261009.zip",
+      "inputKind": "zip"
     },
     {
       "id": "20261009-bak-cultivation",
