@@ -6,6 +6,6 @@
 
 ## 공개 기록
 
-- [20261009_박_적심도식_정리_MD_HTML_전체자료.zip](records/20261009-bak-cultivation/) — 박 적심·아들줄기 관리 도식
-- [20261009-sprinkler-thread-guide.zip](records/20261009-sprinkler-thread-guide/) — 스프링클러 1/2″·3/4″·1″ 배관 나사 규격 비교
-  - 원본 이미지 2장과 생성 ZIP 바이너리는 GitHub 업로드 대기 상태이며, 본문·원본 텍스트·해시·누락 보고를 먼저 공개했습니다.
+- [스프링클러 배관 나사 규격 정리](records/20261009-sprinkler-thread-guide/) — 1/2″·3/4″·1″ 배관 나사 규격 비교 · 대화 첨부 이미지 3개(고유 2개) · 원본 ZIP 보존
+- [herbicide-guide-20261009.zip](records/20261009-herbicide-classification/) — 제초제 분류 및 사용 가이드 · 원본 사진 업로드 대기
+- [20261009_박_적심도식_정리_MD_HTML_전체자료.zip](records/20261009-bak-cultivation/) — 박 적심·아들줄기 관리 도식 · 원본 사진 업로드 대기
