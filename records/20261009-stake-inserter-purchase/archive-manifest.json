@@ -7,8 +7,8 @@
   "files": [
     {
       "path": "README.md",
-      "size": 3335,
-      "sha256": "d3292835d4f5a8168f4350b3853f7d67d8ad6e713665bb81981806be8f4adbd1",
+      "size": 3328,
+      "sha256": "2030d390bf5cad1d24aa5bd8b1e853243b1b956fc02951c02e45e11c559adcdd",
       "original": false
     },
     {
@@ -19,8 +19,8 @@
     },
     {
       "path": "index.html",
-      "size": 7508,
-      "sha256": "e4769b8eae70a2f15e2b44dfc16daaca9e12f80b9d96d4b0e02fa14a5c09f980",
+      "size": 7491,
+      "sha256": "d49e9f01c58ccb27774cece37e9126ab0436b72a938b38abe99f90ae777b4497",
       "original": false
     },
     {
