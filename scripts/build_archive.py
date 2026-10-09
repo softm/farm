@@ -168,6 +168,12 @@ metadata = {
         }
     ]
 }
+# Preserve additional canonical records across rebuilds.
+extra_path = ROOT / 'additional-records.json'
+if extra_path.exists():
+    extras = json.loads(extra_path.read_text(encoding='utf-8'))
+    known = {r['id'] for r in metadata['records']}
+    metadata['records'].extend(r for r in extras if r['id'] not in known)
 save_json(ROOT / 'archive-index.json', metadata)
 
 if SITE.exists():

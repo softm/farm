@@ -1,0 +1,26 @@
+[
+  {
+    "id": "20261009-stake-inserter-purchase",
+    "slug": "20261009-stake-inserter-purchase",
+    "title": "지주대 삽입기 구매기록",
+    "titleSource": "user-override",
+    "listTitle": "20261009_지주대_삽입기_구매기록.zip",
+    "sourceTitle": "지주대 삽입기 구매기록",
+    "date": "2026-10-09",
+    "dateBasis": "order-date",
+    "kind": "농기구 구매",
+    "visibility": "public",
+    "url": "https://softm.github.io/farm/records/20261009-stake-inserter-purchase/",
+    "repoUrl": "https://github.com/softm/farm/tree/main/records/20261009-stake-inserter-purchase",
+    "originalPhotoCount": 2,
+    "originalImageCount": 2,
+    "sourceIntegrityComplete": true,
+    "description": "주문 2건 · 표시금액 합계 26,300원 · 원본 이미지 2장. 선택 옵션·호환 규격 미확인.",
+    "files": {
+      "images": 2,
+      "videos": 0,
+      "audio": 0,
+      "documents": 0
+    }
+  }
+]

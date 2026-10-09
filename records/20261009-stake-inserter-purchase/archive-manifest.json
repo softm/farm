@@ -1,0 +1,45 @@
+{
+  "id": "20261009-stake-inserter-purchase",
+  "title": "20261009 지주대 삽입기 구매기록",
+  "date": "2026-10-09",
+  "visibility": "public",
+  "originalImages": 2,
+  "files": [
+    {
+      "path": "README.md",
+      "size": 3335,
+      "sha256": "d3292835d4f5a8168f4350b3853f7d67d8ad6e713665bb81981806be8f4adbd1",
+      "original": false
+    },
+    {
+      "path": "source-inventory.csv",
+      "size": 95,
+      "sha256": "19d9299c7c3326cc99145d720d3127d37bc8000ca07b665bd1693dba529d0594",
+      "original": false
+    },
+    {
+      "path": "index.html",
+      "size": 7508,
+      "sha256": "e4769b8eae70a2f15e2b44dfc16daaca9e12f80b9d96d4b0e02fa14a5c09f980",
+      "original": false
+    },
+    {
+      "path": "verification-report.md",
+      "size": 243,
+      "sha256": "e806485a5df18673c020b359c7a41fb5df65422eb5eb8ea794d583f41c1ae997",
+      "original": false
+    },
+    {
+      "path": "images/product.png",
+      "size": 169061,
+      "sha256": "526b85d72d354572faf2ffc07c5642ac583cd1af60c1edae8a47834fb0159241",
+      "original": true
+    },
+    {
+      "path": "images/order.png",
+      "size": 68870,
+      "sha256": "a537c1fbe0e2520719c2af1a659723448e92655431a03e321a0862e9b4d7cdc7",
+      "original": true
+    }
+  ]
+}
