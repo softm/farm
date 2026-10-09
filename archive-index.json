@@ -8,7 +8,10 @@
       "slug": "20261009-herbicide-classification",
       "listTitle": "herbicide-guide-20261009.zip",
       "sourceTitle": "제초제 분류와 제품 비교 — 대화 전체 재정리",
-      "title": "herbicide-guide-20261009.zip",
+      "title": "제초제 분류와 제품 비교 — 대화 전체 재정리",
+      "titleSource": "user-override",
+      "inputName": "herbicide-guide-20261009.zip",
+      "inputKind": "zip",
       "date": "2026-10-09",
       "dateBasis": "archive_created",
       "eventDate": null,
@@ -84,5 +87,5 @@
       "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 대화 첨부 이미지 3개와 원본 ZIP을 보존."
     }
   ],
-  "updatedAt": "2026-10-09T17:33:00.415428+00:00"
+  "updatedAt": "2026-10-09T17:35:12.538481+00:00"
 }
