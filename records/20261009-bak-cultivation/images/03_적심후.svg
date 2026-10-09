@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L10,3 L0,6 z" fill="#205b2d" />
+      </marker>
+      <style>
+        .title { font: 700 34px 'Arial', sans-serif; fill:#17391f; }
+        .subtitle { font: 600 22px 'Arial', sans-serif; fill:#245b31; }
+        .label { font: 600 20px 'Arial', sans-serif; fill:#17391f; }
+        .small { font: 16px 'Arial', sans-serif; fill:#34503a; }
+        .tiny { font: 14px 'Arial', sans-serif; fill:#4e6954; }
+        .leaf { fill:#6bbb58; stroke:#2e7d32; stroke-width:3; }
+        .stem { stroke:#2f7c2f; stroke-width:10; stroke-linecap:round; fill:none; }
+        .bud { fill:#ffbf59; stroke:#b87300; stroke-width:2; }
+        .cut { stroke:#d62828; stroke-width:8; stroke-linecap:round; }
+        .dash { stroke:#d62828; stroke-width:4; stroke-dasharray:14 10; fill:none; }
+        .box { fill:#f7fbf5; stroke:#d4e2d1; stroke-width:2; rx:20; }
+      </style>
+    </defs>
+    <rect width="100%" height="100%" fill="#ffffff"/>
+    
+<text x="60" y="58" class="title">3. 적심 후 변화</text>
+<text x="60" y="94" class="small">정아우세가 약해지면서 잎겨드랑이의 곁눈이 커져 아들줄기로 자란다.</text>
+<path d="M600 610 L600 250" class="stem"/>
+<ellipse cx="535" cy="560" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="560" rx="62" ry="24" class="leaf"/><ellipse cx="535" cy="490" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="490" rx="62" ry="24" class="leaf"/><ellipse cx="535" cy="420" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="420" rx="62" ry="24" class="leaf"/><ellipse cx="535" cy="350" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="350" rx="62" ry="24" class="leaf"/><ellipse cx="535" cy="280" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="280" rx="62" ry="24" class="leaf"/><line x1="560" y1="490" x2="430" y2="355" class="stem"/><line x1="640" y1="420" x2="770" y2="315" class="stem"/><line x1="565" y1="352" x2="470" y2="245" class="stem"/><ellipse cx="402" cy="332" rx="56" ry="22" transform="rotate(-28 402 332)" class="leaf"/><ellipse cx="792" cy="295" rx="56" ry="22" transform="rotate(28 792 295)" class="leaf"/><ellipse cx="446" cy="218" rx="56" ry="22" transform="rotate(-35 446 218)" class="leaf"/><text x="350" y="312" class="label">아들줄기</text><text x="805" y="275" class="label">아들줄기</text><text x="360" y="205" class="label">아들줄기</text><text x="130" y="638" class="small">적심하지 않아도 아들줄기는 나올 수 있지만, 적심하면 보통 발생이 더 빨라지고 세력이 분산되어 관리가 쉬워진다.</text>
+    </svg>

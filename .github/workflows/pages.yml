@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -16,11 +16,56 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - name: Verify approved sources and build public archive
+        run: python scripts/build_archive.py
+      - name: Persist imported originals and canonical record metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- records/20261009-bak-cultivation archive-index.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Sync verified farm archive sources and metadata'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Install browser verifier
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Verify live URLs, hashes, desktop, mobile and image dialogs
+        run: python scripts/verify_live.py
+      - name: Save verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: farm-archive-verification
+          path: |
+            build-verification.json
+            live-verification.json
+            verified-*.png
+          retention-days: 30
+      - name: Remove only verified input ZIP after successful live checks
+        run: |
+          python - <<'PY'
+          import json, pathlib, hashlib
+          p = pathlib.Path('zip/20261009_박_적심도식_정리_MD_HTML_전체자료.zip')
+          report = json.loads(pathlib.Path('live-verification.json').read_text())
+          if report['sourceIntegrityComplete'] and p.exists():
+              assert hashlib.sha256(p.read_bytes()).hexdigest() == '5d4c12e9b4962635f395065794dfe44c9f5899a1660be30591280e6a6363d920'
+              p.unlink()
+          PY
+          git add -u -- zip
+          if ! git diff --cached --quiet; then
+            git commit -m 'Clean verified input ZIP; original retained in archive'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

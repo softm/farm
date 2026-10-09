@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L10,3 L0,6 z" fill="#205b2d" />
+      </marker>
+      <style>
+        .title { font: 700 34px 'Arial', sans-serif; fill:#17391f; }
+        .subtitle { font: 600 22px 'Arial', sans-serif; fill:#245b31; }
+        .label { font: 600 20px 'Arial', sans-serif; fill:#17391f; }
+        .small { font: 16px 'Arial', sans-serif; fill:#34503a; }
+        .tiny { font: 14px 'Arial', sans-serif; fill:#4e6954; }
+        .leaf { fill:#6bbb58; stroke:#2e7d32; stroke-width:3; }
+        .stem { stroke:#2f7c2f; stroke-width:10; stroke-linecap:round; fill:none; }
+        .bud { fill:#ffbf59; stroke:#b87300; stroke-width:2; }
+        .cut { stroke:#d62828; stroke-width:8; stroke-linecap:round; }
+        .dash { stroke:#d62828; stroke-width:4; stroke-dasharray:14 10; fill:none; }
+        .box { fill:#f7fbf5; stroke:#d4e2d1; stroke-width:2; rx:20; }
+      </style>
+    </defs>
+    <rect width="100%" height="100%" fill="#ffffff"/>
+    
+<text x="60" y="58" class="title">2. 어디를 자르나?</text>
+<text x="60" y="94" class="small">핵심은 본줄기 끝을 자르는 것이다. 잎과 곁눈은 남기고, 그 위의 생장점을 제거한다.</text>
+<path d="M600 610 L600 180" class="stem"/>
+<ellipse cx="535" cy="560" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="560" rx="62" ry="24" class="leaf"/><circle cx="622" cy="560" r="10" class="bud"/><ellipse cx="535" cy="490" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="490" rx="62" ry="24" class="leaf"/><circle cx="578" cy="490" r="10" class="bud"/><ellipse cx="535" cy="420" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="420" rx="62" ry="24" class="leaf"/><circle cx="622" cy="420" r="10" class="bud"/><ellipse cx="535" cy="350" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="350" rx="62" ry="24" class="leaf"/><circle cx="578" cy="350" r="10" class="bud"/><ellipse cx="535" cy="280" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="280" rx="62" ry="24" class="leaf"/><circle cx="622" cy="280" r="10" class="bud"/><text x="640" y="286" class="label">남길 곁눈</text><ellipse cx="535" cy="210" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="210" rx="62" ry="24" class="leaf"/><line x1="548" y1="235" x2="652" y2="275" class="cut"/><line x1="652" y1="235" x2="548" y2="275" class="cut"/><path d="M770 250 C900 250, 900 180, 740 180" class="dash" marker-end="url(#arrow)"/><text x="910" y="185" class="label" text-anchor="end">✂ 이 위를 절단</text><text x="120" y="640" class="small">보통 “본잎 5~6매(또는 6~7매) 확보 후, 마지막으로 남길 마디 위를 자른다”라고 설명한다.</text>
+    </svg>

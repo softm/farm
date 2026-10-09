@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L10,3 L0,6 z" fill="#205b2d" />
+      </marker>
+      <style>
+        .title { font: 700 34px 'Arial', sans-serif; fill:#17391f; }
+        .subtitle { font: 600 22px 'Arial', sans-serif; fill:#245b31; }
+        .label { font: 600 20px 'Arial', sans-serif; fill:#17391f; }
+        .small { font: 16px 'Arial', sans-serif; fill:#34503a; }
+        .tiny { font: 14px 'Arial', sans-serif; fill:#4e6954; }
+        .leaf { fill:#6bbb58; stroke:#2e7d32; stroke-width:3; }
+        .stem { stroke:#2f7c2f; stroke-width:10; stroke-linecap:round; fill:none; }
+        .bud { fill:#ffbf59; stroke:#b87300; stroke-width:2; }
+        .cut { stroke:#d62828; stroke-width:8; stroke-linecap:round; }
+        .dash { stroke:#d62828; stroke-width:4; stroke-dasharray:14 10; fill:none; }
+        .box { fill:#f7fbf5; stroke:#d4e2d1; stroke-width:2; rx:20; }
+      </style>
+    </defs>
+    <rect width="100%" height="100%" fill="#ffffff"/>
+    
+<text x="60" y="58" class="title">1. 적심 전 상태</text>
+<text x="60" y="94" class="small">본줄기 끝 생장점이 강하게 자라고 있어 곁눈(아들줄기)은 아직 크지 않다.</text>
+<path d="M600 610 L600 180" class="stem"/>
+<ellipse cx="535" cy="560" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="560" rx="62" ry="24" class="leaf"/><text x="716" y="566" class="label">본잎 1</text><circle cx="622" cy="557" r="10" class="bud"/><text x="640" y="563" class="tiny">곁눈</text><ellipse cx="535" cy="490" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="490" rx="62" ry="24" class="leaf"/><text x="716" y="496" class="label">본잎 2</text><circle cx="578" cy="493" r="10" class="bud"/><text x="596" y="499" class="tiny">곁눈</text><ellipse cx="535" cy="420" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="420" rx="62" ry="24" class="leaf"/><text x="716" y="426" class="label">본잎 3</text><circle cx="622" cy="417" r="10" class="bud"/><text x="640" y="423" class="tiny">곁눈</text><ellipse cx="535" cy="350" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="350" rx="62" ry="24" class="leaf"/><text x="716" y="356" class="label">본잎 4</text><circle cx="578" cy="353" r="10" class="bud"/><text x="596" y="359" class="tiny">곁눈</text><ellipse cx="535" cy="280" rx="62" ry="24" class="leaf"/><ellipse cx="665" cy="280" rx="62" ry="24" class="leaf"/><text x="716" y="286" class="label">본잎 5</text><circle cx="600" cy="145" r="13" class="bud"/><text x="622" y="150" class="label">생장점</text><path d="M760 146 C850 146, 850 90, 740 90" class="dash" marker-end="url(#arrow)"/><text x="860" y="95" class="small" text-anchor="end">여기가 계속 자라는 중</text><text x="150" y="625" class="small">사진처럼 아들줄기가 안 보이는 시기에도, 잎겨드랑이에는 작은 곁눈이 이미 존재할 수 있다.</text>
+    </svg>

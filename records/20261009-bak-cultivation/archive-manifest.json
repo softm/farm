@@ -1,0 +1,49 @@
+{
+  "title": "박 적심 도식화 정리",
+  "date": "2026-10-09",
+  "focus": "적심 도식화 그림 중심 정리",
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 2358,
+      "sha256": "139a3d75bc07d084cfed98ae1f83705b86d43b22ab5503bd5c273bc2ebeaaa64",
+      "kind": "generated"
+    },
+    {
+      "path": "images/00_적심핵심도식.svg",
+      "size_bytes": 5191,
+      "sha256": "448587f1d34f8c7e9e3b26adfad9a8f25bbfb230a0292570675404727017c188",
+      "kind": "generated"
+    },
+    {
+      "path": "images/01_적심전.svg",
+      "size_bytes": 3062,
+      "sha256": "7e704ac7ca71b7a595f4ca4ab34143eb2ebf75876935ab229546c3df8791a0d9",
+      "kind": "generated"
+    },
+    {
+      "path": "images/02_절단위치.svg",
+      "size_bytes": 2850,
+      "sha256": "84f28d36edce66ffef43c1ee82257391112a248574ec9441848d428f575f3da8",
+      "kind": "generated"
+    },
+    {
+      "path": "images/03_적심후.svg",
+      "size_bytes": 2784,
+      "sha256": "e308f8d6e874ae0ed40be02abc0c7124fbf9a10b20285f9260ddfee01cc4cda5",
+      "kind": "generated"
+    },
+    {
+      "path": "images/04_원본사진_박생육.jpg",
+      "size_bytes": 497941,
+      "sha256": "bdae24af7d1bfaa1686868cc6e27d7c0ccda70e258bb904997f2664245564c52",
+      "kind": "original"
+    },
+    {
+      "path": "index.html",
+      "size_bytes": 6047,
+      "sha256": "1eb9dc7cc7909a5b8cff6f3c6738ffeec9a29259ad9b1484c64bbd5792050246",
+      "kind": "generated"
+    }
+  ]
+}

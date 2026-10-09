@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L10,3 L0,6 z" fill="#205b2d" />
+      </marker>
+      <style>
+        .title { font: 700 34px 'Arial', sans-serif; fill:#17391f; }
+        .subtitle { font: 600 22px 'Arial', sans-serif; fill:#245b31; }
+        .label { font: 600 20px 'Arial', sans-serif; fill:#17391f; }
+        .small { font: 16px 'Arial', sans-serif; fill:#34503a; }
+        .tiny { font: 14px 'Arial', sans-serif; fill:#4e6954; }
+        .leaf { fill:#6bbb58; stroke:#2e7d32; stroke-width:3; }
+        .stem { stroke:#2f7c2f; stroke-width:10; stroke-linecap:round; fill:none; }
+        .bud { fill:#ffbf59; stroke:#b87300; stroke-width:2; }
+        .cut { stroke:#d62828; stroke-width:8; stroke-linecap:round; }
+        .dash { stroke:#d62828; stroke-width:4; stroke-dasharray:14 10; fill:none; }
+        .box { fill:#f7fbf5; stroke:#d4e2d1; stroke-width:2; rx:20; }
+      </style>
+    </defs>
+    <rect width="100%" height="100%" fill="#ffffff"/>
+    
+<text x="60" y="58" class="title">박 적심 핵심 도식</text>
+<text x="60" y="95" class="small">핵심: 본줄기 끝의 생장점을 잘라 정아우세를 약하게 하면, 잎겨드랑이의 곁눈이 자라 아들줄기가 나온다.</text>
+
+<rect x="40" y="130" width="340" height="500" class="box"/>
+<text x="70" y="175" class="subtitle">1) 적심 전</text>
+<text x="70" y="205" class="tiny">본줄기가 계속 자라며 곁눈은 작고 잠잠함</text>
+<path d="M210 560 L210 260" class="stem"/>
+<ellipse cx="155" cy="505" rx="52" ry="22" class="leaf"/>
+<ellipse cx="265" cy="505" rx="52" ry="22" class="leaf"/>
+<ellipse cx="155" cy="440" rx="52" ry="22" class="leaf"/>
+<ellipse cx="265" cy="440" rx="52" ry="22" class="leaf"/>
+<ellipse cx="155" cy="375" rx="52" ry="22" class="leaf"/>
+<ellipse cx="265" cy="375" rx="52" ry="22" class="leaf"/>
+<ellipse cx="155" cy="310" rx="52" ry="22" class="leaf"/>
+<ellipse cx="265" cy="310" rx="52" ry="22" class="leaf"/>
+<circle cx="210" cy="235" r="11" class="bud"/>
+<text x="227" y="240" class="label">생장점</text>
+<circle cx="228" cy="502" r="8" class="bud"/>
+<circle cx="192" cy="437" r="8" class="bud"/>
+<circle cx="228" cy="372" r="8" class="bud"/>
+<text x="244" y="378" class="tiny">곁눈</text>
+<text x="70" y="595" class="small">본잎 5~7매 전개 시, 세력과 재배 방식에 따라 적심 여부를 결정</text>
+
+<rect x="430" y="130" width="340" height="500" class="box"/>
+<text x="460" y="175" class="subtitle">2) 자르는 위치</text>
+<text x="460" y="205" class="tiny">남길 잎과 곁눈은 그대로 두고, 그 위 생장점을 절단</text>
+<path d="M600 560 L600 260" class="stem"/>
+<ellipse cx="545" cy="505" rx="52" ry="22" class="leaf"/>
+<ellipse cx="655" cy="505" rx="52" ry="22" class="leaf"/>
+<ellipse cx="545" cy="440" rx="52" ry="22" class="leaf"/>
+<ellipse cx="655" cy="440" rx="52" ry="22" class="leaf"/>
+<ellipse cx="545" cy="375" rx="52" ry="22" class="leaf"/>
+<ellipse cx="655" cy="375" rx="52" ry="22" class="leaf"/>
+<ellipse cx="545" cy="310" rx="52" ry="22" class="leaf"/>
+<ellipse cx="655" cy="310" rx="52" ry="22" class="leaf"/>
+<circle cx="600" cy="235" r="11" class="bud"/>
+<line x1="555" y1="246" x2="645" y2="282" class="cut"/>
+<line x1="645" y1="246" x2="555" y2="282" class="cut"/>
+<path d="M690 265 C760 255, 760 220, 690 220" class="dash" marker-end="url(#arrow)"/>
+<text x="765" y="225" class="label" text-anchor="end">✂ 이 위를 자름</text>
+<circle cx="618" cy="502" r="8" class="bud"/>
+<circle cx="582" cy="437" r="8" class="bud"/>
+<text x="640" y="505" class="tiny">남기는 곁눈</text>
+<text x="460" y="595" class="small">즉, “곁눈은 남기고 그 위 줄기를 자른다.”</text>
+
+<rect x="820" y="130" width="340" height="500" class="box"/>
+<text x="850" y="175" class="subtitle">3) 적심 후</text>
+<text x="850" y="205" class="tiny">정아우세가 약해지고 곁눈이 자라 아들줄기가 나옴</text>
+<path d="M990 560 L990 315" class="stem"/>
+<ellipse cx="935" cy="505" rx="52" ry="22" class="leaf"/>
+<ellipse cx="1045" cy="505" rx="52" ry="22" class="leaf"/>
+<ellipse cx="935" cy="440" rx="52" ry="22" class="leaf"/>
+<ellipse cx="1045" cy="440" rx="52" ry="22" class="leaf"/>
+<ellipse cx="935" cy="375" rx="52" ry="22" class="leaf"/>
+<ellipse cx="1045" cy="375" rx="52" ry="22" class="leaf"/>
+<line x1="945" y1="438" x2="875" y2="350" class="stem"/>
+<line x1="1035" y1="438" x2="1105" y2="350" class="stem"/>
+<ellipse cx="844" cy="328" rx="48" ry="20" transform="rotate(-28 844 328)" class="leaf"/>
+<ellipse cx="1136" cy="328" rx="48" ry="20" transform="rotate(28 1136 328)" class="leaf"/>
+<circle cx="878" cy="355" r="9" class="bud"/>
+<circle cx="1102" cy="355" r="9" class="bud"/>
+<text x="826" y="300" class="label">아들줄기</text>
+<text x="1090" y="300" class="label" text-anchor="end">아들줄기</text>
+<text x="850" y="595" class="small">적심하지 않아도 곁줄기는 나올 수 있지만, 보통 적심하면 더 빨리·강하게 나옴</text>
+
+    </svg>
