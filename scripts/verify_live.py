@@ -52,7 +52,7 @@ with sync_playwright() as p:
         page.wait_for_function("document.body.innerText.includes('스프링클러 배관 나사 규격 정리')")
         assert page.locator('.record').count() == 3, 'Expected three farm public records'
         page.locator('#q').fill('스프링클러')
-        assert page.locator('.record').count() == 3
+        assert page.locator('.record').count() == 1
         visible = page.locator('.record:visible')
         assert visible.count() == 1 and '스프링클러 배관 나사 규격 정리' in visible.first.inner_text()
         page.locator('#q').fill('')
