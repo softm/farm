@@ -85,6 +85,33 @@ metadata = {
         'description': '적심 전 → 절단 위치 → 적심 후 아들줄기. 도식 4개 중심의 원본 정리.'
     }]
 }
+metadata['records'].append({
+    'id': '20261009-sprinkler-thread-guide',
+    'slug': '20261009-sprinkler-thread-guide',
+    'listTitle': '20261009-sprinkler-thread-guide.zip',
+    'sourceTitle': '스프링클러 배관 나사 규격 정리',
+    'title': '20261009-sprinkler-thread-guide.zip',
+    'date': '2026-10-09',
+    'dateBasis': 'archive_created',
+    'eventDate': None,
+    'kind': '관수·부품',
+    'visibility': 'public',
+    'url': 'https://softm.github.io/farm/records/20261009-sprinkler-thread-guide/',
+    'repoUrl': 'https://github.com/softm/farm/tree/main/records/20261009-sprinkler-thread-guide',
+    'originalImageCount': 0,
+    'expectedOriginalImageCount': 2,
+    'previewCount': 0,
+    'sourceFileCount': 2,
+    'expectedSourceFileCount': 5,
+    'sourceIntegrityComplete': False,
+    'missingFiles': [
+        'assets/1787216371339.jpeg',
+        'assets/1787216435706.jpeg',
+        'originals/20261009-sprinkler-thread-guide.zip'
+    ],
+    'status': 'binary-upload-pending',
+    'description': '1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 원본 이미지 2장·ZIP 바이너리 업로드 대기.'
+})
 save_json(ROOT / 'archive-index.json', metadata)
 site = ROOT / '_site'
 if site.exists():
