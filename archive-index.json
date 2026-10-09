@@ -4,6 +4,28 @@
   "repository": "softm/farm",
   "records": [
     {
+      "id": "20261009-herbicide-classification",
+      "slug": "20261009-herbicide-classification",
+      "listTitle": "herbicide-guide-20261009.zip",
+      "sourceTitle": "제초제 분류 및 사용 가이드",
+      "title": "herbicide-guide-20261009.zip",
+      "date": "2026-10-09",
+      "dateBasis": "archive_created",
+      "eventDate": null,
+      "kind": "방제 · 농약 관리",
+      "visibility": "public",
+      "url": "https://softm.github.io/farm/records/20261009-herbicide-classification/",
+      "repoUrl": "https://github.com/softm/farm/tree/main/records/20261009-herbicide-classification",
+      "originalPhotoCount": 0,
+      "expectedOriginalPhotoCount": 9,
+      "sourceIntegrityComplete": false,
+      "missingFiles": [
+        "원본 사진 9장 웹 업로드",
+        "ZIP 바이너리 웹 업로드"
+      ],
+      "summary": "스톰프·케이펜디·라쏘·단골·풀앤짱·푸리타의 제초제 분류 비교"
+    },
+    {
       "id": "20261009-bak-cultivation",
       "slug": "20261009-bak-cultivation",
       "listTitle": "20261009_박_적심도식_정리_MD_HTML_전체자료.zip",
