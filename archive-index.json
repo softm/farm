@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "project": "농업·농사",
   "repository": "softm/farm",
   "records": [
@@ -32,9 +32,10 @@
     {
       "id": "20261009-sprinkler-thread-guide",
       "slug": "20261009-sprinkler-thread-guide",
-      "listTitle": "20261009-sprinkler-thread-guide.zip",
+      "listTitle": "20261009_스프링클러_배관_나사_규격_정리_MD_HTML_전체자료.zip",
       "sourceTitle": "스프링클러 배관 나사 규격 정리",
-      "title": "20261009-sprinkler-thread-guide.zip",
+      "title": "스프링클러 배관 나사 규격 정리",
+      "titleSource": "user-override",
       "date": "2026-10-09",
       "dateBasis": "archive_created",
       "eventDate": null,
@@ -42,19 +43,16 @@
       "visibility": "public",
       "url": "https://softm.github.io/farm/records/20261009-sprinkler-thread-guide/",
       "repoUrl": "https://github.com/softm/farm/tree/main/records/20261009-sprinkler-thread-guide",
-      "originalImageCount": 0,
-      "expectedOriginalImageCount": 2,
+      "originalImageCount": 3,
+      "uniqueOriginalImageCount": 2,
+      "expectedOriginalImageCount": 3,
       "previewCount": 0,
-      "sourceFileCount": 2,
-      "expectedSourceFileCount": 5,
-      "sourceIntegrityComplete": false,
-      "missingFiles": [
-        "assets/1787216371339.jpeg",
-        "assets/1787216435706.jpeg",
-        "originals/20261009-sprinkler-thread-guide.zip"
-      ],
-      "status": "binary-upload-pending",
-      "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 원본 이미지 2장·ZIP 바이너리 업로드 대기."
+      "sourceFileCount": 8,
+      "expectedSourceFileCount": 8,
+      "sourceIntegrityComplete": true,
+      "missingFiles": [],
+      "status": "source-complete",
+      "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 대화 첨부 이미지 3개와 원본 ZIP을 보존."
     }
   ]
 }

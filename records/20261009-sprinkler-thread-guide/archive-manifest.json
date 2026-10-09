@@ -1,53 +1,56 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "id": "20261009-sprinkler-thread-guide",
   "slug": "20261009-sprinkler-thread-guide",
-  "listTitle": "20261009-sprinkler-thread-guide.zip",
+  "title": "스프링클러 배관 나사 규격 정리",
+  "listTitle": "20261009_스프링클러_배관_나사_규격_정리_MD_HTML_전체자료.zip",
   "sourceTitle": "스프링클러 배관 나사 규격 정리",
   "date": "2026-10-09",
-  "dateBasis": "archive_created",
   "project": "농업·농사",
   "visibility": "public",
-  "sourceZip": {
-    "name": "20261009-sprinkler-thread-guide.zip",
-    "size": 313385,
-    "sha256": "d012b20f7b6b5794d5c2e4bf6586467a70fb1ac1508e6104f476a4cf33926bdc",
-    "repositoryCopy": false
-  },
-  "sourceFiles": [
+  "files": [
     {
       "path": "README.md",
-      "size": 2755,
-      "sha256": "626fd53b5e977b3a03c3d17d095f96b648a5a2eb119ced3fcc49c806408aa09b",
-      "repositoryCopy": true
+      "size_bytes": 2508,
+      "sha256": "a192e6b7f5f2390ced35239cc5e5f6f1fb5c04b5fb1e4199ea2bfe2e2c2fc85d",
+      "kind": "generated"
     },
     {
       "path": "index.html",
-      "size": 4686,
-      "sha256": "acfe711ff4eeddf5a36115895963d1c8f34d0172404c8d67181bd08e4107b659",
-      "repositoryCopy": true
+      "size_bytes": 6597,
+      "sha256": "4f586fcdddc83867696408e0ead54db9144e543b89035e1f22f01b9b534621e3",
+      "kind": "generated"
     },
     {
-      "path": "assets/1787216371339.jpeg",
-      "size": 186814,
-      "sha256": "dd02c30f2b6e49499a9b73b382f81abec495f19be8ff331b928b5dc0b388ecad",
-      "repositoryCopy": false
-    },
-    {
-      "path": "assets/1787216435706.jpeg",
-      "size": 154223,
+      "path": "images/1787216435706.jpeg",
+      "size_bytes": 154223,
       "sha256": "a56f1452cfdde8eb0af1dbd95648cb952d19e81776680944ccd0562a622063a6",
-      "repositoryCopy": false
+      "kind": "original"
+    },
+    {
+      "path": "images/1787216371339.jpeg",
+      "size_bytes": 186814,
+      "sha256": "dd02c30f2b6e49499a9b73b382f81abec495f19be8ff331b928b5dc0b388ecad",
+      "kind": "original"
+    },
+    {
+      "path": "images/1787216990018.jpeg",
+      "size_bytes": 154223,
+      "sha256": "a56f1452cfdde8eb0af1dbd95648cb952d19e81776680944ccd0562a622063a6",
+      "kind": "original"
     }
   ],
-  "sourceIntegrityComplete": false,
-  "missingFiles": [
-    "assets/1787216371339.jpeg",
-    "assets/1787216435706.jpeg",
-    "originals/20261009-sprinkler-thread-guide.zip"
+  "duplicateFiles": [
+    {
+      "sha256": "a56f1452cfdde8eb0af1dbd95648cb952d19e81776680944ccd0562a622063a6",
+      "paths": [
+        "images/1787216435706.jpeg",
+        "images/1787216990018.jpeg"
+      ],
+      "reason": "대화에서 동일 화면이 두 번 첨부되어 파일명별 기록을 보존"
+    }
   ],
-  "sourceReferenceIssue": [
-    "README.md와 index.html이 assets/crop.png를 참조하지만 생성 ZIP에는 해당 파일이 없음"
-  ],
-  "rendererVersion": "archive-text-fallback-20261009"
+  "sourceIntegrityComplete": true,
+  "originalImageCount": 3,
+  "uniqueOriginalImageCount": 2
 }
