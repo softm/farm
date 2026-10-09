@@ -1,0 +1,17 @@
+{
+  "parts": ["part-00.b64", "part-01.b64", "part-02.b64", "part-03.b64", "part-04.b64", "part-05.b64", "part-06.b64"],
+  "atlasSha256": "f6059c41b701c4251df00167435c32eff21d848b6acc0252d74dff303b26c37a",
+  "variant": "privacy-redacted-web-derivative",
+  "originalJPEGsUnchanged": true,
+  "images": [
+    {"name":"1000056270.jpg","rect":[0,0,360,640]},
+    {"name":"1000056271.jpg","rect":[640,0,360,640]},
+    {"name":"1000056272.jpg","rect":[1280,0,360,640]},
+    {"name":"1000056273.jpg","rect":[0,640,360,640]},
+    {"name":"1000056274.jpg","rect":[640,640,360,640]},
+    {"name":"1000056275.jpg","rect":[1280,640,360,640]},
+    {"name":"1000056243.jpg","rect":[0,1280,640,360]},
+    {"name":"1000056244.jpg","rect":[640,1280,640,360]},
+    {"name":"1000056245.jpg","rect":[1280,1280,640,360]}
+  ]
+}
