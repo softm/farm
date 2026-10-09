@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "project": "농업·농사",
+  "repository": "softm/farm",
+  "slug": "20261009-herbicide-classification",
+  "inputZipName": "herbicide-guide-20261009.zip",
+  "title": "제초제 분류와 제품 비교 — 대화 전체 재정리",
+  "generatedAt": "2026-10-09T16:39:20.228186+00:00",
+  "expectedOriginalCount": 9,
+  "originalCount": 0,
+  "webDerivativeCount": 0,
+  "displayableImageCount": 0,
+  "originalBytesComplete": false,
+  "images": [
+    {
+      "name": "1000056270.jpg",
+      "product": "풀앤짱",
+      "caption": "앞면 — 상표와 품목 확인",
+      "sha256": "a6158e2688120f0ac77767631cc078d6c6ecbe248d83a58eee8b45a25d5c9ed04",
+      "gitBlob": "ce8eaab9e3a0265075068508f0126ab3d0fde260",
+      "bytes": 234448,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056271.jpg",
+      "product": "풀앤짱",
+      "caption": "뚜껑 — 손글씨는 공식 라벨과 구분",
+      "sha256": "fe5f4f6d82c05be608bebe7d583e17fbea553f057e8e27072bc2946d5ee6be5b20",
+      "gitBlob": "b21df8e1056c5913a5783b531065932460d8e8d97",
+      "bytes": 189982,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056272.jpg",
+      "product": "풀앤짱",
+      "caption": "적용표 — 작물·시기·약량·물량을 같은 행에서 읽기",
+      "sha256": "cbbd8e82d5c418f57e4a536518277231aac5d00d98d8cbe64b3a3c2e6c92b42be7",
+      "gitBlob": "69be06b03535764db357d2ed661c26380fdf2644",
+      "bytes": 243434,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056273.jpg",
+      "product": "푸리타",
+      "caption": "앞면 — 상표와 품목 확인",
+      "sha256": "3e014e7282f98517c0c1f5413f6b233a5b0d8d99599326e6b41502bb0518eb58cb",
+      "gitBlob": "1283244724764c044999a3c50099a4a77c6c102a",
+      "bytes": 233665,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056274.jpg",
+      "product": "푸리타",
+      "caption": "뚜껑 — 표시 용량을 정밀 계량값으로 일반화하지 않기",
+      "sha256": "34e3364de1dfa61b8a263439d85d9d163f0dc4df06ace0f96a3ca098cff18a52c2",
+      "gitBlob": "c899620940d2a728e496582517b5d82c0993f4a7b5",
+      "bytes": 178529,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056275.jpg",
+      "product": "푸리타",
+      "caption": "성분·적용표 — 24.5% 및 각 적용 행 확인",
+      "sha256": "342123a795a78f51ce5b82c2f5e7d1f2abfd1473a88b5b576af553d77fd4a5c9",
+      "gitBlob": "3791b601986b5b683d99e8476b0eae00747980b1d",
+      "bytes": 252719,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056243.jpg",
+      "product": "라쏘",
+      "caption": "매대 사진 — 알라클로르 유제 제품",
+      "sha256": "f137b3a3385680f9e06fcb7ae8d921a1fbdfc18e4ade4f139ef73baf0abaa31a10",
+      "gitBlob": "58b26fadb71cdc9e7971fc5d7c1b953f0633dfdf",
+      "bytes": 231190,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056244.jpg",
+      "product": "스톰프",
+      "caption": "매대 사진 — 펜디메탈린 유제 제품",
+      "sha256": "2d8a7d198e72a91e840a7a711bc2245003299eefc52c5c3f12733ffb943eb84e41",
+      "gitBlob": "3c859f36d36a7eef1fef197bb6ce802719580d8f",
+      "bytes": 242250,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    },
+    {
+      "name": "1000056245.jpg",
+      "product": "단골",
+      "caption": "매대 사진 — 벤타존소듐·페녹사프로프-피-에틸 미탁제",
+      "sha256": "df3d9a772cab345c1ea3a664a591bea76e3bada92e72e00a2cc920560d0e3667a0",
+      "gitBlob": "fe4f848aa1ac3c9edfa1088f91edf351746ec315",
+      "bytes": 243543,
+      "originalAvailable": false,
+      "src": null,
+      "variant": "missing",
+      "servedSha256": null
+    }
+  ],
+  "privacy": {
+    "originalJPEGs": "Unmodified originals belong in the user-delivered source ZIP. Public derivatives, when present, are separately identified.",
+    "webDerivativesAreOriginals": false
+  }
+}

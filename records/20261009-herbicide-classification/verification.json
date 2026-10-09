@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-09T16:39:20.228186+00:00",
+  "contentCharacters": 13834,
+  "contentSections": 12,
+  "tableCount": 14,
+  "questionCount": 6,
+  "expectedMediaCount": 9,
+  "originalCount": 0,
+  "displayableImageCount": 0,
+  "mediaPathsExist": true,
+  "originalHashesMatch": false,
+  "allNineImagesDisplayable": false,
+  "javascriptIncluded": true,
+  "stylesIncluded": true,
+  "liveBrowserVerified": false,
+  "note": "This report is a build result, not a substitute for live-verification.json."
+}

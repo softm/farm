@@ -4,6 +4,35 @@
   "repository": "softm/farm",
   "records": [
     {
+      "id": "20261009-herbicide-classification",
+      "slug": "20261009-herbicide-classification",
+      "listTitle": "herbicide-guide-20261009.zip",
+      "sourceTitle": "제초제 분류와 제품 비교 — 대화 전체 재정리",
+      "title": "herbicide-guide-20261009.zip",
+      "date": "2026-10-09",
+      "dateBasis": "archive_created",
+      "eventDate": null,
+      "kind": "방제 · 농약 관리",
+      "visibility": "public",
+      "url": "https://softm.github.io/farm/records/20261009-herbicide-classification/",
+      "repoUrl": "https://github.com/softm/farm/tree/main/records/20261009-herbicide-classification",
+      "originalPhotoCount": 0,
+      "expectedOriginalPhotoCount": 9,
+      "previewCount": 0,
+      "displayableImageCount": 0,
+      "sourceIntegrityComplete": false,
+      "publicMediaComplete": false,
+      "originalsDelivery": "source ZIP attached to user conversation",
+      "sourceFileCount": 12,
+      "summary": "6종 비교·분류 체계·질문 전체·라벨 단위·오류 정정·출처·사진 9개 항목. 공개 열람본과 원본 ZIP을 구분.",
+      "files": {
+        "images": 0,
+        "videos": 0,
+        "audio": 0,
+        "documents": 4
+      }
+    },
+    {
       "id": "20261009-bak-cultivation",
       "slug": "20261009-bak-cultivation",
       "listTitle": "20261009_박_적심도식_정리_MD_HTML_전체자료.zip",
@@ -30,29 +59,6 @@
       "description": "적심 전 → 절단 위치 → 적심 후 아들줄기. 도식 4개 중심의 원본 정리."
     },
     {
-      "id": "20261009-herbicide-classification",
-      "slug": "20261009-herbicide-classification",
-      "listTitle": "herbicide-guide-20261009.zip",
-      "sourceTitle": "제초제 분류 및 사용 가이드",
-      "title": "herbicide-guide-20261009.zip",
-      "date": "2026-10-09",
-      "dateBasis": "archive_created",
-      "eventDate": null,
-      "kind": "농약·제초",
-      "visibility": "public",
-      "url": "https://softm.github.io/farm/records/20261009-herbicide-classification/",
-      "repoUrl": "https://github.com/softm/farm/tree/main/records/20261009-herbicide-classification",
-      "originalImageCount": 0,
-      "expectedOriginalImageCount": 9,
-      "sourceFileCount": 2,
-      "expectedSourceFileCount": 11,
-      "sourceIntegrityComplete": false,
-      "missingFiles": [],
-      "missingCount": 9,
-      "status": "original-upload-pending",
-      "description": "스톰프·케이펜디·라쏘·단골·풀앤짱·푸리타의 선택성·처리시기 구분. 원본 사진 9장 업로드 대기."
-    },
-    {
       "id": "20261009-sprinkler-thread-guide",
       "slug": "20261009-sprinkler-thread-guide",
       "listTitle": "20261009_스프링클러_배관_나사_규격_정리_MD_HTML_전체자료.zip",
@@ -77,5 +83,6 @@
       "status": "source-complete",
       "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 대화 첨부 이미지 3개와 원본 ZIP을 보존."
     }
-  ]
+  ],
+  "updatedAt": "2026-10-09T16:39:20.228186+00:00"
 }

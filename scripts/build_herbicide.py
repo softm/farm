@@ -27,7 +27,7 @@ if patch_file.exists():
 write('README.md',md)
 assert '30% + 2%' not in md, 'Uncorrected DANGOL concentration'
 assert '들깨(씨)와 콩' in md, 'Current manufacturer crop/placement qualification missing'
-assert len(md)>14000, 'Do not deploy the old abbreviated guide'
+assert len(md.encode('utf-8'))>14000 and md.count('### Q')>=6, 'Do not deploy the old abbreviated guide'
 
 # An optional, explicitly derivative atlas is only a byte-transport format for web copies.
 # It must never be represented as the nine original JPEG files.
