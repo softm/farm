@@ -53,19 +53,30 @@ jobs:
             live-verification.json
             verified-*.png
           retention-days: 30
-      - name: Remove only verified input ZIP after successful live checks
+      - name: Remove only verified input ZIPs after successful live checks
         run: |
           python - <<'PY'
           import json, pathlib, hashlib
-          p = pathlib.Path('zip/20261009_박_적심도식_정리_MD_HTML_전체자료.zip')
           report = json.loads(pathlib.Path('live-verification.json').read_text())
-          if report['sourceIntegrityComplete'] and p.exists():
-              assert hashlib.sha256(p.read_bytes()).hexdigest() == '5d4c12e9b4962635f395065794dfe44c9f5899a1660be30591280e6a6363d920'
-              p.unlink()
+          targets = [
+              ('20261009-bak-cultivation',
+               pathlib.Path('zip/20261009_박_적심도식_정리_MD_HTML_전체자료.zip'),
+               '5d4c12e9b4962635f395065794dfe44c9f5899a1660be30591280e6a6363d920'),
+              ('20261009-sprinkler-thread-guide',
+               pathlib.Path('zip/20261009_스프링클러_배관_나사_규격_정리_MD_HTML_전체자료.zip'),
+               '9938ab410763d27a0aa5d40e96fda2617dc7a44a660fdde30b69937b704a710c'),
+          ]
+          for slug, path, digest in targets:
+              ok = report['records'][slug]['sourceIntegrityComplete']
+              if slug == '20261009-sprinkler-thread-guide':
+                  ok = ok and report.get('sprinklerVerified') is True
+              if ok and path.exists():
+                  assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
+                  path.unlink()
           PY
           git add -u -- zip
           if ! git diff --cached --quiet; then
-            git commit -m 'Clean verified input ZIP; original retained in archive'
+            git commit -m 'Clean verified input ZIPs; originals retained in archive'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
