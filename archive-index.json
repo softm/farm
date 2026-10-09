@@ -6,9 +6,9 @@
     {
       "id": "20261009-herbicide-classification",
       "slug": "20261009-herbicide-classification",
-      "listTitle": "20261009 제초제 분류 및 사용 가이드",
+      "listTitle": "herbicide-guide-20261009.zip",
       "sourceTitle": "제초제 분류와 제품 비교 — 대화 전체 재정리",
-      "title": "20261009 제초제 분류 및 사용 가이드",
+      "title": "제초제 분류와 제품 비교 — 대화 전체 재정리",
       "titleSource": "user-override",
       "inputName": "herbicide-guide-20261009.zip",
       "inputKind": "zip",
@@ -38,9 +38,9 @@
     {
       "id": "20261009-bak-cultivation",
       "slug": "20261009-bak-cultivation",
-      "listTitle": "20261009 박 적심도식 정리",
+      "listTitle": "20261009_박_적심도식_정리_MD_HTML_전체자료.zip",
       "sourceTitle": "박 적심 도식화 정리",
-      "title": "20261009 박 적심도식 정리",
+      "title": "20261009_박_적심도식_정리_MD_HTML_전체자료.zip",
       "date": "2026-10-09",
       "dateBasis": "archive_created",
       "eventDate": null,
@@ -59,15 +59,14 @@
         "images/04_원본사진_박생육.jpg"
       ],
       "status": "original-upload-pending",
-      "description": "적심 전 → 절단 위치 → 적심 후 아들줄기. 도식 4개 중심의 원본 정리.",
-      "inputName": "20261009_박_적심도식_정리_MD_HTML_전체자료.zip"
+      "description": "적심 전 → 절단 위치 → 적심 후 아들줄기. 도식 4개 중심의 원본 정리."
     },
     {
       "id": "20261009-sprinkler-thread-guide",
       "slug": "20261009-sprinkler-thread-guide",
-      "listTitle": "20261009 스프링클러 배관 나사 규격 정리",
+      "listTitle": "20261009_스프링클러_배관_나사_규격_정리_MD_HTML_전체자료.zip",
       "sourceTitle": "스프링클러 배관 나사 규격 정리",
-      "title": "20261009 스프링클러 배관 나사 규격 정리",
+      "title": "스프링클러 배관 나사 규격 정리",
       "titleSource": "user-override",
       "date": "2026-10-09",
       "dateBasis": "archive_created",
@@ -85,15 +84,14 @@
       "sourceIntegrityComplete": true,
       "missingFiles": [],
       "status": "source-complete",
-      "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 대화 첨부 이미지 3개와 원본 ZIP을 보존.",
-      "inputName": "20261009_스프링클러_배관_나사_규격_정리_MD_HTML_전체자료.zip"
+      "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 대화 첨부 이미지 3개와 원본 ZIP을 보존."
     },
     {
       "id": "20261009-stake-inserter-purchase",
       "slug": "20261009-stake-inserter-purchase",
-      "title": "20261009 지주대 삽입기 구매기록",
+      "title": "지주대 삽입기 구매기록",
       "titleSource": "user-override",
-      "listTitle": "20261009 지주대 삽입기 구매기록",
+      "listTitle": "20261009_지주대_삽입기_구매기록.zip",
       "sourceTitle": "지주대 삽입기 구매기록",
       "date": "2026-10-09",
       "dateBasis": "order-date",
@@ -110,9 +108,8 @@
         "videos": 0,
         "audio": 0,
         "documents": 0
-      },
-      "inputName": "20261009_지주대_삽입기_구매기록.zip"
+      }
     }
   ],
-  "updatedAt": "2026-10-09T18:04:44.328821+00:00"
+  "updatedAt": "2026-10-09T20:27:46.719643+00:00"
 }
