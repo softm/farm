@@ -18,15 +18,15 @@
       "repoUrl": "https://github.com/softm/farm/tree/main/records/20261009-herbicide-classification",
       "originalPhotoCount": 0,
       "expectedOriginalPhotoCount": 9,
-      "previewCount": 0,
-      "displayableImageCount": 0,
+      "previewCount": 9,
+      "displayableImageCount": 9,
       "sourceIntegrityComplete": false,
-      "publicMediaComplete": false,
+      "publicMediaComplete": true,
       "originalsDelivery": "source ZIP attached to user conversation",
-      "sourceFileCount": 12,
+      "sourceFileCount": 21,
       "summary": "6종 비교·분류 체계·질문 전체·라벨 단위·오류 정정·출처·사진 9개 항목. 공개 열람본과 원본 ZIP을 구분.",
       "files": {
-        "images": 0,
+        "images": 9,
         "videos": 0,
         "audio": 0,
         "documents": 4
@@ -84,5 +84,5 @@
       "description": "1/2″·3/4″·1″ 스프링클러 배관 나사 호칭과 수나사 외경 비교. 대화 첨부 이미지 3개와 원본 ZIP을 보존."
     }
   ],
-  "updatedAt": "2026-10-09T16:49:45.546501+00:00"
+  "updatedAt": "2026-10-09T16:52:34.147542+00:00"
 }

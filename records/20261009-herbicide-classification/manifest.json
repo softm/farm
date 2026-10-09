@@ -5,11 +5,11 @@
   "slug": "20261009-herbicide-classification",
   "inputZipName": "herbicide-guide-20261009.zip",
   "title": "제초제 분류와 제품 비교 — 대화 전체 재정리",
-  "generatedAt": "2026-10-09T16:49:45.546501+00:00",
+  "generatedAt": "2026-10-09T16:52:34.147542+00:00",
   "expectedOriginalCount": 9,
   "originalCount": 0,
-  "webDerivativeCount": 0,
-  "displayableImageCount": 0,
+  "webDerivativeCount": 9,
+  "displayableImageCount": 9,
   "originalBytesComplete": false,
   "images": [
     {
@@ -20,9 +20,9 @@
       "gitBlob": "ce8eaab9e3a0265075068508f0126ab3d0fde260",
       "bytes": 234448,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056270.webp",
+      "variant": "preview",
+      "servedSha256": "cea3be92c3d9b6008ba03a32f83c2bf9fdfbfa595fa84ee9481b945c8e556764"
     },
     {
       "name": "1000056271.jpg",
@@ -32,9 +32,9 @@
       "gitBlob": "b21df8e1056c5913a5783b531065932460d8e8d97",
       "bytes": 189982,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056271.webp",
+      "variant": "preview",
+      "servedSha256": "d4441479d0d18898e01e12dc470c6569b01c959db3e357fd2a70b4359f6aa8af"
     },
     {
       "name": "1000056272.jpg",
@@ -44,9 +44,9 @@
       "gitBlob": "69be06b03535764db357d2ed661c26380fdf2644",
       "bytes": 243434,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056272.webp",
+      "variant": "preview",
+      "servedSha256": "9f150b4413bbc02a66a15d0b740fda833c28ba770b76e510f4c27d50f251d7a2"
     },
     {
       "name": "1000056273.jpg",
@@ -56,9 +56,9 @@
       "gitBlob": "1283244724764c044999a3c50099a4a77c6c102a",
       "bytes": 233665,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056273.webp",
+      "variant": "preview",
+      "servedSha256": "ef2474fbef93b2d3d67253b74a6cba9578f4fc5acaa9e762a1735e9279147408"
     },
     {
       "name": "1000056274.jpg",
@@ -68,9 +68,9 @@
       "gitBlob": "c899620940d2a728e496582517b5d82c0993f4a7b5",
       "bytes": 178529,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056274.webp",
+      "variant": "preview",
+      "servedSha256": "b5cf0e6aaf2069f50af37371ccde48289122337ddb95c5a71d926f93deaae5ac"
     },
     {
       "name": "1000056275.jpg",
@@ -80,9 +80,9 @@
       "gitBlob": "3791b601986b5b683d99e8476b0eae00747980b1d",
       "bytes": 252719,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056275.webp",
+      "variant": "preview",
+      "servedSha256": "c98e0db5ddb1db5b4dc2ee7f16250a900bcd4a786315d5b67484271b026af552"
     },
     {
       "name": "1000056243.jpg",
@@ -92,9 +92,9 @@
       "gitBlob": "58b26fadb71cdc9e7971fc5d7c1b953f0633dfdf",
       "bytes": 231190,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056243.webp",
+      "variant": "preview",
+      "servedSha256": "d719531f4fece12d752913687e6ea892f939a543add99f2ba8444226a67c9d70"
     },
     {
       "name": "1000056244.jpg",
@@ -104,9 +104,9 @@
       "gitBlob": "3c859f36d36a7eef1fef197bb6ce802719580d8f",
       "bytes": 242250,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056244.webp",
+      "variant": "preview",
+      "servedSha256": "e66b7ef98a7da6e20b643ea02ec58432eff373865ecefb8b134e873ffa5a8e88"
     },
     {
       "name": "1000056245.jpg",
@@ -116,9 +116,9 @@
       "gitBlob": "fe4f848aa1ac3c9edfa1088f91edf351746ec315",
       "bytes": 243543,
       "originalAvailable": false,
-      "src": null,
-      "variant": "missing",
-      "servedSha256": null
+      "src": "previews/1000056245.webp",
+      "variant": "preview",
+      "servedSha256": "316768741479a3d4d018275b04041bbb235969fc05bd6f1c5c03fad7b1844b65"
     }
   ],
   "privacy": {
