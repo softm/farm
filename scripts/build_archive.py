@@ -133,6 +133,22 @@ metadata = {
             'description': '적심 전 → 절단 위치 → 적심 후 아들줄기. 도식 4개 중심의 원본 정리.'
         },
         {
+            'id': '20261009-herbicide-classification',
+            'slug': '20261009-herbicide-classification',
+            'listTitle': 'herbicide-guide-20261009.zip',
+            'sourceTitle': '제초제 분류 및 사용 가이드',
+            'title': 'herbicide-guide-20261009.zip',
+            'date': '2026-10-09', 'dateBasis': 'archive_created',
+            'eventDate': None, 'kind': '농약·제초', 'visibility': 'public',
+            'url': 'https://softm.github.io/farm/records/20261009-herbicide-classification/',
+            'repoUrl': 'https://github.com/softm/farm/tree/main/records/20261009-herbicide-classification',
+            'originalImageCount': 0, 'expectedOriginalImageCount': 9,
+            'sourceFileCount': 2, 'expectedSourceFileCount': 11,
+            'sourceIntegrityComplete': False, 'missingFiles': [],
+            'missingCount': 9, 'status': 'original-upload-pending',
+            'description': '스톰프·케이펜디·라쏘·단골·풀앤짱·푸리타의 선택성·처리시기 구분. 원본 사진 9장 업로드 대기.'
+        },
+        {
             'id': SPRINKLER['slug'], 'slug': SPRINKLER['slug'],
             'listTitle': SPRINKLER['zip_name'],
             'sourceTitle': '스프링클러 배관 나사 규격 정리',
