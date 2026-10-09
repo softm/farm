@@ -1,0 +1,7 @@
+original_name,source_location,archive_path,type,role,size_bytes,sha256,status
+README.md,source-zip:README.md,originals/README.md,markdown,source,2755,626fd53b5e977b3a03c3d17d095f96b648a5a2eb119ced3fcc49c806408aa09b,preserved
+index.html,source-zip:index.html,originals/index.html,html,source,4686,acfe711ff4eeddf5a36115895963d1c8f34d0172404c8d67181bd08e4107b659,preserved
+1787216371339.jpeg,source-zip:assets/1787216371339.jpeg,images/1787216371339.jpeg,image,original,186814,dd02c30f2b6e49499a9b73b382f81abec495f19be8ff331b928b5dc0b388ecad,upload-pending
+1787216435706.jpeg,source-zip:assets/1787216435706.jpeg,images/1787216435706.jpeg,image,original,154223,a56f1452cfdde8eb0af1dbd95648cb952d19e81776680944ccd0562a622063a6,upload-pending
+20261009-sprinkler-thread-guide.zip,conversation-generated,originals/20261009-sprinkler-thread-guide.zip,zip,original-container,313385,d012b20f7b6b5794d5c2e4bf6586467a70fb1ac1508e6104f476a4cf33926bdc,upload-pending
+crop.png,source-reference-only,assets/crop.png,image,referenced-missing,,,not-in-source-zip
