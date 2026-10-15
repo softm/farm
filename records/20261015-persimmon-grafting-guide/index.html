@@ -1,0 +1,467 @@
+<!-- SOFTM-GRAFT-ARCHIVE START: 감나무 접수·접목 146장 통합 갤러리와 원본 뷰어 구현 (2026-10-15) -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="감나무 접수 채취·저온 보관·조제·접목 과정을 원본 화면 146장으로 정리한 아카이브">
+  <meta name="theme-color" content="#173b2c">
+  <title>2026-10-15 감나무 접수·접목 방법</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #183028;
+      --muted: #617269;
+      --paper: #f5f2e9;
+      --surface: #fffdf7;
+      --surface-strong: #ffffff;
+      --line: #d9d6ca;
+      --green: #173b2c;
+      --green-2: #2f6a4f;
+      --leaf: #8aaa65;
+      --orange: #d06a35;
+      --shadow: 0 18px 45px rgba(33, 52, 42, .12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0, rgba(138, 170, 101, .16), transparent 28rem),
+        linear-gradient(180deg, #fbfaf5 0, var(--paper) 32rem, #efede5 100%);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .skip-link { position: fixed; left: 12px; top: -60px; z-index: 1000; padding: 10px 14px; background: #fff; border-radius: 10px; }
+    .skip-link:focus { top: 12px; }
+    .wrap { width: min(1180px, calc(100% - 36px)); margin-inline: auto; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(217, 214, 202, .82);
+      background: rgba(251, 250, 245, .88);
+      backdrop-filter: blur(18px);
+    }
+    .site-nav .wrap { display: flex; min-height: 62px; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { font-weight: 850; letter-spacing: -.02em; text-decoration: none; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .nav-links a { padding: 8px 11px; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: .9rem; }
+    .nav-links a:hover, .nav-links a:focus-visible { background: #e7eadf; color: var(--green); }
+
+    .hero { padding: 76px 0 40px; }
+    .eyebrow { margin: 0 0 14px; color: var(--orange); font-weight: 850; font-size: .82rem; letter-spacing: .14em; }
+    h1 { max-width: 900px; margin: 0; font-size: clamp(2.25rem, 6vw, 5.6rem); line-height: 1.02; letter-spacing: -.065em; text-wrap: balance; }
+    .lead { max-width: 780px; margin: 24px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2.2vw, 1.3rem); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+    .badge { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.68); color: #43564d; font-size: .9rem; }
+    .badge strong { color: var(--green); }
+    .badge.source-link { border-color: #b7c9ba; color: var(--green); text-decoration: none; }
+    .badge.source-link:hover, .badge.source-link:focus-visible { border-color: var(--green-2); background: #eef5eb; }
+
+    .section { padding: 42px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+    .section-head h2 { margin: 0; font-size: clamp(1.65rem, 4vw, 2.6rem); letter-spacing: -.04em; }
+    .section-head p { max-width: 620px; margin: 0; color: var(--muted); }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .summary-card { min-height: 190px; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 8px 24px rgba(33,52,42,.06); }
+    .summary-card .number { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--green); color: #fff; font-weight: 800; }
+    .summary-card h3 { margin: 22px 0 8px; font-size: 1.1rem; }
+    .summary-card p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .process { position: relative; display: grid; gap: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+    .process-row { display: grid; grid-template-columns: 140px 1fr 1.25fr; gap: 20px; align-items: start; padding: 22px 24px; border-bottom: 1px solid var(--line); }
+    .process-row:last-child { border-bottom: 0; }
+    .process-row strong { color: var(--green-2); }
+    .process-row span { color: var(--muted); }
+
+    .notice { display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 20px 22px; border: 1px solid #e1c6a9; border-radius: 18px; background: #fff6e9; color: #714622; }
+    .notice b { font-size: 1.25rem; }
+    .notice p { margin: 0; }
+
+    .tools { display: flex; flex-wrap: wrap; gap: 9px; }
+    .tools span { padding: 9px 12px; border: 1px solid #ccd8cb; border-radius: 10px; background: #f4f8f1; }
+
+    .gallery-shell { border: 1px solid var(--line); border-radius: 26px; background: rgba(255,253,247,.78); box-shadow: var(--shadow); overflow: hidden; }
+    .gallery-toolbar { position: sticky; top: 62px; z-index: 20; display: grid; grid-template-columns: minmax(220px, 1fr) minmax(180px, .44fr) auto; gap: 10px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,253,247,.94); backdrop-filter: blur(16px); }
+    .field { width: 100%; min-height: 46px; padding: 10px 13px; border: 1px solid #cfcfc4; border-radius: 12px; background: #fff; color: var(--ink); }
+    .field:focus { outline: 3px solid rgba(47,106,79,.18); border-color: var(--green-2); }
+    .result-count { align-self: center; white-space: nowrap; color: var(--muted); font-size: .9rem; }
+    .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
+    .gallery-card { position: relative; min-width: 0; border: 0; padding: 0; background: var(--surface-strong); text-align: left; cursor: pointer; }
+    .gallery-card:hover .thumb img, .gallery-card:focus-visible .thumb img { transform: scale(1.035); }
+    .gallery-card:focus-visible { outline: 4px solid var(--orange); outline-offset: -4px; z-index: 2; }
+    .thumb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #dfe5dc; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .24s ease; }
+    .sequence { position: absolute; left: 10px; top: 10px; padding: 5px 8px; border-radius: 8px; color: #fff; background: rgba(15,37,28,.82); font-size: .75rem; font-weight: 850; }
+    .card-copy { padding: 13px 14px 15px; }
+    .card-group { color: var(--orange); font-size: .73rem; font-weight: 800; }
+    .card-caption { display: -webkit-box; min-height: 2.9em; margin-top: 5px; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: #31443a; font-size: .88rem; line-height: 1.45; }
+    .empty { grid-column: 1 / -1; padding: 56px 20px; background: #fff; text-align: center; color: var(--muted); }
+
+    .downloads { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .download-card { min-height: 126px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); text-decoration: none; }
+    .download-card:hover, .download-card:focus-visible { border-color: var(--green-2); transform: translateY(-2px); }
+    .download-card strong { display: block; margin-bottom: 6px; }
+    .download-card span { color: var(--muted); font-size: .86rem; }
+
+    dialog { width: min(1180px, calc(100% - 24px)); max-width: none; height: min(900px, calc(100dvh - 24px)); max-height: none; padding: 0; border: 0; border-radius: 24px; overflow: hidden; background: #0b110e; color: #fff; box-shadow: 0 30px 90px rgba(0,0,0,.5); }
+    dialog::backdrop { background: rgba(4,10,7,.83); backdrop-filter: blur(6px); }
+    .viewer { display: grid; grid-template-rows: auto minmax(0,1fr) auto; height: 100%; }
+    .viewer-top, .viewer-bottom { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #121b16; }
+    .viewer-top { justify-content: space-between; border-bottom: 1px solid #26322b; }
+    .viewer-bottom { justify-content: space-between; border-top: 1px solid #26322b; }
+    .viewer-title { min-width: 0; }
+    .viewer-title strong, .viewer-title span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .viewer-title span { color: #aebbb3; font-size: .82rem; }
+    .viewer-actions { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+    .icon-btn, .viewer-link { min-height: 40px; padding: 8px 12px; border: 1px solid #3d4b43; border-radius: 10px; background: #1b2821; color: #fff; text-decoration: none; cursor: pointer; }
+    .icon-btn:hover, .icon-btn:focus-visible, .viewer-link:hover, .viewer-link:focus-visible { background: #2f6a4f; outline: none; }
+    .viewer-stage { position: relative; display: grid; min-height: 0; place-items: center; overflow: auto; background: #070b09; touch-action: pan-y; }
+    .viewer-stage img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; transform-origin: center; transition: transform .16s ease; }
+    .viewer-nav { position: absolute; top: 50%; transform: translateY(-50%); display: grid; width: 48px; height: 58px; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: rgba(11,17,14,.72); color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .viewer-nav.prev { left: 12px; }
+    .viewer-nav.next { right: 12px; }
+    .viewer-counter { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .viewer-caption { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #c7d0ca; }
+    .close { font-size: 1.15rem; }
+
+    footer { padding: 34px 0 54px; color: var(--muted); font-size: .88rem; }
+    footer .wrap { padding-top: 22px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 920px) {
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .downloads { grid-template-columns: repeat(3, 1fr); }
+      .process-row { grid-template-columns: 110px 1fr; }
+      .process-row span { grid-column: 2; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .site-nav .wrap { min-height: 56px; }
+      .nav-links a:not(:last-child) { display: none; }
+      .hero { padding-top: 50px; }
+      h1 { font-size: clamp(2.15rem, 13vw, 3.8rem); }
+      .section { padding: 32px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 8px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .summary-card { min-height: 0; }
+      .process-row { grid-template-columns: 1fr; gap: 5px; }
+      .process-row span { grid-column: auto; }
+      .gallery-shell { margin-inline: -12px; border-radius: 18px; }
+      .gallery-toolbar { top: 56px; grid-template-columns: 1fr; }
+      .result-count { justify-self: end; }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card-copy { padding: 10px; }
+      .downloads { grid-template-columns: 1fr 1fr; }
+      dialog { width: 100%; height: 100dvh; border-radius: 0; }
+      .viewer-top { align-items: flex-start; }
+      .viewer-actions .zoom-label { display: none; }
+      .viewer-bottom { display: grid; grid-template-columns: auto 1fr; }
+      .viewer-caption { grid-column: 1 / -1; grid-row: 1; }
+      .viewer-actions { grid-column: 2; }
+      .viewer-nav { top: auto; bottom: 78px; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <nav class="site-nav" aria-label="문서 탐색">
+    <div class="wrap">
+      <a class="brand" href="#top">감나무 접목 기록</a>
+      <div class="nav-links">
+        <a href="#summary">핵심 정리</a>
+        <a href="#process">작업 순서</a>
+        <a href="#gallery">원본 146장</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">PERSIMMON GRAFTING · SOURCE ARCHIVE</p>
+        <h1>2026-10-15 감나무 접수·접목 방법</h1>
+        <p class="lead">눈이 움직이기 전 접수를 채취해 0~5℃로 보관하고, 살아 있는 눈을 확인해 조제한 뒤 대목에 맞춰 결속·밀봉하는 전 과정을 146장의 원본 화면으로 정리했습니다.</p>
+        <div class="hero-meta" aria-label="아카이브 정보">
+          <span class="badge"><strong>146</strong> 원본 PNG</span>
+          <span class="badge"><strong>0</strong> 동일 해시 중복</span>
+          <span class="badge"><strong>10</strong> 작업 구간</span>
+          <span class="badge"><strong>공개</strong> 아카이브</span>
+          <a class="badge source-link" href="https://www.youtube.com/watch?v=0GeX_SlVFo8&amp;t=1s" target="_blank" rel="noopener noreferrer"><strong>출처</strong> 영동군농업기술센터 · 정말 쉽다 감나무 접목 ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="summary">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>네 가지 기준</h2>
+          <p>선별한 핵심 화면과 상세 자막에서 반복 확인되는 기준입니다.</p>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card"><span class="number">1</span><h3>채취 시기</h3><p>눈이 움직이기 전, 상세 설명 기준 1월 하순부터 2월 10일 무렵까지 준비합니다.</p></article>
+          <article class="summary-card"><span class="number">2</span><h3>접수 선택</h3><p>잎눈이 많고 굵기 9mm 이상인 1년생 가지를 고르고 내부 녹색 조직을 확인합니다.</p></article>
+          <article class="summary-card"><span class="number">3</span><h3>저온 보관</h3><p>습윤 재료로 감싸 비닐에 완전히 밀봉한 뒤 냉장고 야채실 등 0~5℃에 둡니다.</p></article>
+          <article class="summary-card"><span class="number">4</span><h3>접목 시기</h3><p>대목에 수액이 오르는 3월 말~4월 무렵, 봄비나 충분한 관수 뒤 작업하는 흐름입니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>작업 순서</h2>
+          <p>화면의 설명 순서를 실제 작업 단위로 재배열했습니다.</p>
+        </div>
+        <div class="process" role="list">
+          <div class="process-row" role="listitem"><strong>01 · 채취</strong><b>1월 하순~2월 10일</b><span>수액이 오르기 전의 1년생 가지에서 잎눈과 굵기를 확인합니다.</span></div>
+          <div class="process-row" role="listitem"><strong>02 · 포장</strong><b>수분 유지 + 완전 밀봉</b><span>젖은 수건·신문지로 감싸고 비닐 입구를 고무줄이나 테이프로 닫습니다.</span></div>
+          <div class="process-row" role="listitem"><strong>03 · 저장</strong><b>0~5℃</b><span>가정용 냉장고 야채실처럼 낮은 온도를 유지하는 곳에 보관합니다.</span></div>
+          <div class="process-row" role="listitem"><strong>04 · 조제</strong><b>대체로 5~7cm</b><span>살아 있는 눈을 확인하고 눈 위 약 0.5cm, 아래쪽은 길고 평평하게 자릅니다.</span></div>
+          <div class="process-row" role="listitem"><strong>05 · 대목</strong><b>절단면을 반듯하게</b><span>전정가위·톱으로 자른 뒤 예리한 칼로 윗면을 매끈하게 다듬습니다.</span></div>
+          <div class="process-row" role="listitem"><strong>06 · 결속</strong><b>한쪽 면 정렬</b><span>접수와 대목의 한쪽 면을 맞추고 접목테이프로 움직이지 않게 감습니다.</span></div>
+          <div class="process-row" role="listitem"><strong>07 · 밀봉</strong><b>마지막에 도포</b><span>결속을 끝낸 다음 노출된 절단면을 도포제로 막아 수분 증발을 줄입니다.</span></div>
+          <div class="process-row" role="listitem"><strong>08 · 보호</strong><b>주변에 가지 설치</b><span>고라니 등 야생동물이 접목부를 치지 않도록 마른 가지를 꽂아 우회시킵니다.</span></div>
+        </div>
+        <div class="notice" style="margin-top:16px"><b>!</b><p>칼·톱·가열 도포제는 절단·화상·화재 위험이 있습니다. 이 페이지는 제공된 화면 자료의 기록이며, 실제 작업 시 지역 기후·나무 상태·제품 표시사항과 전문가 지침을 함께 확인해야 합니다.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>확인된 도구</h2><p>화면에 직접 등장하거나 자막에서 설명한 도구만 적었습니다.</p></div>
+        <div class="tools"><span>접목테이프</span><span>전정가위</span><span>접목용 칼</span><span>접이식 톱</span><span>젖은 수건·신문지</span><span>밀봉 비닐</span><span>파라핀 도포제</span><span>톱신페스트</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery-section">
+      <div class="wrap">
+        <div class="section-head" id="gallery"><h2>원본 화면 146장</h2><p>썸네일을 누르면 통합 뷰어가 열립니다. 방향키·이전/다음·확대/축소·모바일 스와이프를 지원합니다.</p></div>
+        <div class="gallery-shell">
+          <div class="gallery-toolbar">
+            <label><span hidden>검색어</span><input class="field" id="search" type="search" placeholder="파일명·설명 검색" autocomplete="off"></label>
+            <label><span hidden>작업 구간</span><select class="field" id="group-filter"><option value="all">모든 작업 구간</option></select></label>
+            <output class="result-count" id="result-count" aria-live="polite">146장</output>
+          </div>
+          <div class="gallery" id="gallery-grid" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="downloads">
+      <div class="wrap">
+        <div class="section-head"><h2>문서와 검증 자료</h2><p>원본별 SHA-256과 생성물 구분은 매니페스트에서 확인할 수 있습니다.</p></div>
+        <div class="downloads">
+          <a class="download-card" href="20261015_감나무_접수_접목방법.md"><strong>상세 Markdown</strong><span>자막과 시연을 작업 순서로 재구성한 본문</span></a>
+          <a class="download-card" href="README.md"><strong>README</strong><span>아카이브 개요와 빠른 링크</span></a>
+          <a class="download-card" href="source-inventory.csv"><strong>원본 목록</strong><span>146장 파일명·크기·해시·화면 크기</span></a>
+          <a class="download-card" href="archive-manifest.json"><strong>Manifest</strong><span>원본과 생성물의 전체 무결성 정보</span></a>
+          <a class="download-card" href="verification-report.md"><strong>검증 보고서</strong><span>ZIP·HTML·이미지·경로 점검 결과</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="viewer" aria-label="원본 이미지 뷰어">
+    <div class="viewer">
+      <div class="viewer-top">
+        <div class="viewer-title"><strong id="viewer-name">원본</strong><span id="viewer-group"></span></div>
+        <div class="viewer-actions">
+          <button class="icon-btn zoom-label" id="zoom-out" type="button" aria-label="축소">−</button>
+          <button class="icon-btn zoom-label" id="zoom-fit" type="button">맞춤</button>
+          <button class="icon-btn zoom-label" id="zoom-in" type="button" aria-label="확대">＋</button>
+          <a class="viewer-link" id="open-original" href="#" target="_blank" rel="noopener">원본 열기</a>
+          <a class="viewer-link" id="download-original" href="#" download>다운로드</a>
+          <button class="icon-btn close" id="close-viewer" type="button" aria-label="뷰어 닫기">✕</button>
+        </div>
+      </div>
+      <div class="viewer-stage" id="viewer-stage">
+        <button class="viewer-nav prev" id="viewer-prev" type="button" aria-label="이전 이미지">‹</button>
+        <div id="viewer-media"></div>
+        <button class="viewer-nav next" id="viewer-next" type="button" aria-label="다음 이미지">›</button>
+      </div>
+      <div class="viewer-bottom"><span class="viewer-counter" id="viewer-counter">1 / 146</span><span class="viewer-caption" id="viewer-caption"></span></div>
+    </div>
+  </dialog>
+
+  <footer><div class="wrap">출처: 영동군농업기술센터 YouTube 「정말 쉽다 감나무 접목」. 원본 화면 파일은 바이트 그대로 보존했고 웹용 썸네일만 별도 생성했습니다.</div></footer>
+
+  <script src="gallery-data.js"></script>
+  <script>
+    /* SOFTM-GRAFT-VIEWER START: 검색·필터·라이트박스·키보드·스와이프·확대 기능 추가 (2026-10-15) */
+    (() => {
+      const items = Array.isArray(window.GRAFT_ARCHIVE_ITEMS) ? window.GRAFT_ARCHIVE_ITEMS : [];
+      const grid = document.querySelector('#gallery-grid');
+      const search = document.querySelector('#search');
+      const groupFilter = document.querySelector('#group-filter');
+      const resultCount = document.querySelector('#result-count');
+      const dialog = document.querySelector('#viewer');
+      const media = document.querySelector('#viewer-media');
+      const stage = document.querySelector('#viewer-stage');
+      const name = document.querySelector('#viewer-name');
+      const group = document.querySelector('#viewer-group');
+      const caption = document.querySelector('#viewer-caption');
+      const counter = document.querySelector('#viewer-counter');
+      const openOriginal = document.querySelector('#open-original');
+      const downloadOriginal = document.querySelector('#download-original');
+      let visibleItems = items.slice();
+      let activeIndex = 0;
+      let scale = 1;
+      let touchStartX = 0;
+
+      [...new Set(items.map(item => item.group))].forEach(value => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        groupFilter.append(option);
+      });
+
+      const normalize = value => String(value || '').toLocaleLowerCase('ko-KR').normalize('NFC');
+
+      function render() {
+        const query = normalize(search.value.trim());
+        const selectedGroup = groupFilter.value;
+        visibleItems = items.filter(item => {
+          const inGroup = selectedGroup === 'all' || item.group === selectedGroup;
+          const haystack = normalize(`${item.file} ${item.caption} ${item.group} ${item.keywords}`);
+          return inGroup && (!query || haystack.includes(query));
+        });
+        grid.replaceChildren();
+        resultCount.value = `${visibleItems.length}장`;
+        resultCount.textContent = `${visibleItems.length}장`;
+        if (!visibleItems.length) {
+          const empty = document.createElement('p');
+          empty.className = 'empty';
+          empty.textContent = '조건에 맞는 원본 화면이 없습니다.';
+          grid.append(empty);
+          return;
+        }
+        const fragment = document.createDocumentFragment();
+        visibleItems.forEach((item, index) => {
+          const button = document.createElement('button');
+          button.className = 'gallery-card';
+          button.type = 'button';
+          button.dataset.index = String(index);
+          button.setAttribute('aria-label', `${item.sequence}번 원본 확대: ${item.caption}`);
+          const thumb = document.createElement('span');
+          thumb.className = 'thumb';
+          const img = document.createElement('img');
+          img.src = item.thumbnail;
+          img.alt = item.caption;
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          const sequence = document.createElement('span');
+          sequence.className = 'sequence';
+          sequence.textContent = item.sequence;
+          thumb.append(img, sequence);
+          const copy = document.createElement('span');
+          copy.className = 'card-copy';
+          const groupText = document.createElement('span');
+          groupText.className = 'card-group';
+          groupText.textContent = item.group;
+          const captionText = document.createElement('span');
+          captionText.className = 'card-caption';
+          captionText.textContent = item.caption;
+          copy.append(groupText, captionText);
+          button.append(thumb, copy);
+          button.addEventListener('click', () => openViewer(index));
+          fragment.append(button);
+        });
+        grid.append(fragment);
+      }
+
+      function updateViewer() {
+        const item = visibleItems[activeIndex];
+        if (!item) return;
+        scale = 1;
+        media.replaceChildren();
+        const img = new Image();
+        img.alt = item.caption;
+        img.src = item.file;
+        img.decoding = 'async';
+        img.style.transform = `scale(${scale})`;
+        media.append(img);
+        name.textContent = item.file;
+        group.textContent = item.group;
+        caption.textContent = item.caption;
+        counter.textContent = `${activeIndex + 1} / ${visibleItems.length}`;
+        openOriginal.href = item.file;
+        downloadOriginal.href = item.file;
+        stage.scrollTo({ top: 0, left: 0 });
+      }
+
+      function openViewer(index) {
+        activeIndex = index;
+        updateViewer();
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else dialog.setAttribute('open', '');
+      }
+
+      function closeViewer() {
+        if (typeof dialog.close === 'function') dialog.close();
+        else dialog.removeAttribute('open');
+        media.replaceChildren();
+      }
+
+      function move(delta) {
+        if (!visibleItems.length) return;
+        activeIndex = (activeIndex + delta + visibleItems.length) % visibleItems.length;
+        updateViewer();
+      }
+
+      function zoom(delta) {
+        scale = Math.min(4, Math.max(.5, +(scale + delta).toFixed(2)));
+        const img = media.querySelector('img');
+        if (img) img.style.transform = `scale(${scale})`;
+      }
+
+      search.addEventListener('input', render);
+      groupFilter.addEventListener('change', render);
+      document.querySelector('#viewer-prev').addEventListener('click', () => move(-1));
+      document.querySelector('#viewer-next').addEventListener('click', () => move(1));
+      document.querySelector('#close-viewer').addEventListener('click', closeViewer);
+      document.querySelector('#zoom-in').addEventListener('click', () => zoom(.25));
+      document.querySelector('#zoom-out').addEventListener('click', () => zoom(-.25));
+      document.querySelector('#zoom-fit').addEventListener('click', () => {
+        scale = 1;
+        const img = media.querySelector('img');
+        if (img) img.style.transform = 'scale(1)';
+        stage.scrollTo({ top: 0, left: 0 });
+      });
+      dialog.addEventListener('click', event => { if (event.target === dialog) closeViewer(); });
+      stage.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', event => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 55) move(distance > 0 ? -1 : 1);
+      }, { passive: true });
+      document.addEventListener('keydown', event => {
+        if (!dialog.hasAttribute('open')) return;
+        if (event.key === 'ArrowLeft') move(-1);
+        if (event.key === 'ArrowRight') move(1);
+        if (event.key === 'Escape') closeViewer();
+        if (event.key === '+' || event.key === '=') zoom(.25);
+        if (event.key === '-') zoom(-.25);
+      });
+
+      render();
+    })();
+    /* SOFTM-GRAFT-VIEWER END: 검색·필터·라이트박스·키보드·스와이프·확대 기능 추가 (2026-10-15) */
+  </script>
+</body>
+</html>
+<!-- SOFTM-GRAFT-ARCHIVE END: 감나무 접수·접목 146장 통합 갤러리와 원본 뷰어 구현 (2026-10-15) -->
