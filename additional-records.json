@@ -22,5 +22,39 @@
       "audio": 0,
       "documents": 0
     }
+  },
+  {
+    "id": "20261015-persimmon-grafting-guide",
+    "slug": "20261015-persimmon-grafting-guide",
+    "title": "20261015_감나무_접수_접목방법",
+    "titleSource": "inbox-name",
+    "listTitle": "20261015_감나무_접수_접목방법",
+    "inputName": "20261015_감나무_접수_접목방법",
+    "inputKind": "folder",
+    "sourceTitle": "2026-10-15 감나무 접수·접목 방법",
+    "sourceVideoTitle": "정말 쉽다 감나무 접목",
+    "sourceAuthor": "영동군농업기술센터",
+    "sourceUrl": "https://www.youtube.com/watch?v=0GeX_SlVFo8&t=1s",
+    "date": "2026-10-15",
+    "dateBasis": "source-directory-name",
+    "kind": "재배 · 접목",
+    "visibility": "public",
+    "url": "https://softm.github.io/farm/records/20261015-persimmon-grafting-guide/",
+    "repoUrl": "https://github.com/softm/farm/tree/main/records/20261015-persimmon-grafting-guide",
+    "originalPhotoCount": 146,
+    "originalImageCount": 146,
+    "previewCount": 146,
+    "sourceFileCount": 300,
+    "expectedSourceFileCount": 300,
+    "sourceIntegrityComplete": true,
+    "missingFiles": [],
+    "status": "source-complete",
+    "description": "접수 채취 시기·선별·0~5℃ 저장·조제·접목·야생동물 피해 방지를 원본 화면 146장으로 정리한 공개 아카이브.",
+    "files": {
+      "images": 146,
+      "videos": 0,
+      "audio": 0,
+      "documents": 5
+    }
   }
 ]
