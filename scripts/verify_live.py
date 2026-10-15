@@ -91,7 +91,11 @@ with sync_playwright() as p:
         thumbnails = page.locator('.gallery-card img')
         assert thumbnails.count() == 146, 'Expected 146 generated persimmon thumbnails'
         for index in [0, 72, 145]:
-            assert thumbnails.nth(index).evaluate('(e)=>e.complete&&e.naturalWidth>0'), 'Persimmon thumbnail did not load'
+            thumbnail = thumbnails.nth(index)
+            thumbnail.scroll_into_view_if_needed()
+            handle = thumbnail.element_handle()
+            assert handle is not None, 'Persimmon thumbnail element missing'
+            page.wait_for_function('(e)=>e.complete&&e.naturalWidth>0', arg=handle, timeout=10000)
         cards.nth(0).click()
         assert page.locator('#viewer').evaluate('(e)=>e.open'), 'Persimmon viewer did not open'
         first = page.locator('#viewer-media img').get_attribute('src')
