@@ -46,11 +46,11 @@ with sync_playwright() as p:
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
 
-        # Project home must render both canonical records from archive-index.json.
+        # Project home must render every public record from archive-index.json.
         page.goto(BASE, wait_until='networkidle')
         page.wait_for_selector('.record')
         page.wait_for_function("document.body.innerText.includes('스프링클러 배관 나사 규격 정리')")
-        assert page.locator('.record').count() == 3, 'Expected three farm public records'
+        assert page.locator('.record').count() == 5, 'Expected five farm public records'  # SOFTM-farm-record-count: 감나무 기록을 포함한 공개 기록 수 검증 (2026-10-15)
         page.locator('#q').fill('스프링클러')
         assert page.locator('.record').count() == 1
         visible = page.locator('.record:visible')
@@ -83,14 +83,33 @@ with sync_playwright() as p:
         page.keyboard.press('Escape')
         assert page.locator('#viewer').evaluate("(e)=>getComputedStyle(e).display==='none'"), 'Viewer close failed'
 
+        # SOFTM-persimmon-live-verification START: 감나무 기록 146장과 통합 뷰어를 실배포 환경에서 검증 (2026-10-15)
+        page.goto(BASE + 'records/20261015-persimmon-grafting-guide/', wait_until='networkidle')
+        assert page.locator('h1').first.inner_text().strip() == '2026-10-15 감나무 접수·접목 방법'
+        cards = page.locator('.gallery-card')
+        assert cards.count() == 146, 'Expected 146 preserved persimmon source images'
+        thumbnails = page.locator('.gallery-card img')
+        assert thumbnails.count() == 146, 'Expected 146 generated persimmon thumbnails'
+        for index in [0, 72, 145]:
+            assert thumbnails.nth(index).evaluate('(e)=>e.complete&&e.naturalWidth>0'), 'Persimmon thumbnail did not load'
+        cards.nth(0).click()
+        assert page.locator('#viewer').evaluate('(e)=>e.open'), 'Persimmon viewer did not open'
+        first = page.locator('#viewer-media img').get_attribute('src')
+        page.locator('#viewer-next').click()
+        assert page.locator('#viewer-media img').get_attribute('src') != first, 'Persimmon next image failed'
+        page.keyboard.press('Escape')
+        assert not page.locator('#viewer').evaluate('(e)=>e.open'), 'Persimmon viewer close failed'
+        # SOFTM-persimmon-live-verification END: 감나무 기록 146장과 통합 뷰어를 실배포 환경에서 검증 (2026-10-15)
+
         overflow = page.evaluate('document.documentElement.scrollWidth>innerWidth+2')
         assert not overflow, 'Horizontal viewport overflow'
         assert not errors, 'JavaScript errors: ' + str(errors)
         page.screenshot(path=str(ROOT / f'verified-{width}.png'), full_page=True)
         results['browser'].append({
             'viewport': [width,height],
-            'farmRecordCount': 3,
+            'farmRecordCount': 5,  # SOFTM-farm-record-count-result: 감나무 기록 포함 집계 저장 (2026-10-15)
             'sprinklerImages': 3,
+            'persimmonImages': 146,  # SOFTM-persimmon-image-result: 감나무 원본 이미지 검증 수 저장 (2026-10-15)
             'viewerPreviousNext': True,
             'viewerKeyboard': True,
             'viewerClose': True,
