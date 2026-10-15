@@ -98,11 +98,29 @@ with sync_playwright() as p:
             page.wait_for_function('(e)=>e.complete&&e.naturalWidth>0', arg=handle, timeout=10000)
         cards.nth(0).click()
         assert page.locator('#viewer').evaluate('(e)=>e.open'), 'Persimmon viewer did not open'
-        first = page.locator('#viewer-media img').get_attribute('src')
+        # SOFTM-persimmon-original-load START: 실제 원본 디코딩과 한글 NFC 경로를 첫째·셋째·마지막 이미지에서 검증 (2026-10-15)
+        viewer_image = page.locator('#viewer-media img')
+        first_handle = viewer_image.element_handle()
+        assert first_handle is not None, 'Persimmon original element missing'
+        page.wait_for_function('(e)=>e.complete&&e.naturalWidth>0', arg=first_handle, timeout=10000)
+        first = viewer_image.get_attribute('src')
         page.locator('#viewer-next').click()
-        assert page.locator('#viewer-media img').get_attribute('src') != first, 'Persimmon next image failed'
+        assert viewer_image.get_attribute('src') != first, 'Persimmon next image failed'
+        page.locator('#viewer-next').click()
+        third_handle = viewer_image.element_handle()
+        assert third_handle is not None, 'Persimmon third original element missing'
+        page.wait_for_function('(e)=>e.complete&&e.naturalWidth>0', arg=third_handle, timeout=10000)
+        assert page.locator('#viewer-counter').inner_text() == '3 / 146', 'Persimmon third original navigation failed'
         page.keyboard.press('Escape')
         assert not page.locator('#viewer').evaluate('(e)=>e.open'), 'Persimmon viewer close failed'
+        cards.nth(145).click()
+        last_handle = viewer_image.element_handle()
+        assert last_handle is not None, 'Persimmon last original element missing'
+        page.wait_for_function('(e)=>e.complete&&e.naturalWidth>0', arg=last_handle, timeout=10000)
+        assert page.locator('#viewer-counter').inner_text() == '146 / 146', 'Persimmon last original navigation failed'
+        page.keyboard.press('Escape')
+        assert not page.locator('#viewer').evaluate('(e)=>e.open'), 'Persimmon last original close failed'
+        # SOFTM-persimmon-original-load END: 실제 원본 디코딩과 한글 NFC 경로를 첫째·셋째·마지막 이미지에서 검증 (2026-10-15)
         # SOFTM-persimmon-live-verification END: 감나무 기록 146장과 통합 뷰어를 실배포 환경에서 검증 (2026-10-15)
 
         overflow = page.evaluate('document.documentElement.scrollWidth>innerWidth+2')
