@@ -324,6 +324,10 @@
       let scale = 1;
       let touchStartX = 0;
 
+      /* SOFTM-GRAFT-NFC-PATH START: macOS 분해형 한글 파일명을 GitHub Pages가 제공하는 조합형 URL로 변환 (2026-10-15) */
+      const originalAssetPath = value => String(value || '').normalize('NFC');
+      /* SOFTM-GRAFT-NFC-PATH END: macOS 분해형 한글 파일명을 GitHub Pages가 제공하는 조합형 URL로 변환 (2026-10-15) */
+
       [...new Set(items.map(item => item.group))].forEach(value => {
         const option = document.createElement('option');
         option.value = value;
@@ -388,11 +392,12 @@
       function updateViewer() {
         const item = visibleItems[activeIndex];
         if (!item) return;
+        const originalPath = originalAssetPath(item.file);
         scale = 1;
         media.replaceChildren();
         const img = new Image();
         img.alt = item.caption;
-        img.src = item.file;
+        img.src = originalPath;
         img.decoding = 'async';
         img.style.transform = `scale(${scale})`;
         media.append(img);
@@ -400,8 +405,8 @@
         group.textContent = item.group;
         caption.textContent = item.caption;
         counter.textContent = `${activeIndex + 1} / ${visibleItems.length}`;
-        openOriginal.href = item.file;
-        downloadOriginal.href = item.file;
+        openOriginal.href = originalPath;
+        downloadOriginal.href = originalPath;
         stage.scrollTo({ top: 0, left: 0 });
       }
 
