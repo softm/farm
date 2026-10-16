@@ -1,0 +1,32 @@
+{
+  "title": "20261006 무·시래기무·시금치 종자 구입 및 늦가을 파종 기록",
+  "date": "2026-10-06",
+  "slug": "20261006-autumn-seed-purchase",
+  "sourceOriginalImageCount": 7,
+  "publishedImageCount": 0,
+  "publicRedactedReceiptPrepared": true,
+  "publicationStatus": "text-only/media-upload-pending",
+  "files": [
+    {
+      "path": "README.md",
+      "type": "text"
+    },
+    {
+      "path": "index.html",
+      "type": "html"
+    },
+    {
+      "path": "archive-manifest.json",
+      "type": "metadata"
+    },
+    {
+      "path": "verification-report.md",
+      "type": "verification"
+    }
+  ],
+  "missing": [
+    "7 original images not yet uploaded to public GitHub",
+    "public-safe receipt image not yet uploaded"
+  ],
+  "sourceNote": "User-facing local ZIP includes 7 original images and one redacted public receipt derivative. The original receipt is not approved for public publication."
+}
