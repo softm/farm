@@ -143,7 +143,34 @@
         "audio": 0,
         "documents": 5
       }
+    },
+    {
+      "id": "20261006-autumn-seed-purchase",
+      "slug": "20261006-autumn-seed-purchase",
+      "title": "20261006 무·시래기무·시금치 종자 구입 및 늦가을 파종 기록",
+      "sourceTitle": "20261006 무·시래기무·시금치 종자 구입 및 늦가을 파종 기록",
+      "listTitle": "20261006 무·시래기무·시금치 종자 구입 및 늦가을 파종 기록",
+      "date": "2026-10-06",
+      "dateBasis": "purchase-receipt",
+      "kind": "종자 구입 · 늦가을 파종",
+      "visibility": "public",
+      "url": "https://softm.github.io/farm/records/20261006-autumn-seed-purchase/",
+      "repoUrl": "https://github.com/softm/farm/tree/main/records/20261006-autumn-seed-purchase",
+      "originalPhotoCount": 0,
+      "expectedOriginalPhotoCount": 7,
+      "sourceIntegrityComplete": false,
+      "status": "media-upload-pending",
+      "missingFiles": [
+        "original scan images × 7 (public-safe 6 + redacted receipt 1)"
+      ],
+      "description": "소망무 1,000립·맛웰빙시래기무 30g·스마트시금치 20g, 12,000원. 어린 무청 수확 목적의 늦가을 파종 계획; 실제 파종 여부 미확인. 사진 공개 업로드 대기.",
+      "files": {
+        "images": 0,
+        "videos": 0,
+        "audio": 0,
+        "documents": 4
+      }
     }
   ],
-  "updatedAt": "2026-10-15T14:26:47.514214+00:00"
+  "updatedAt": "2026-10-16T14:41:21.684417+00:00"
 }
