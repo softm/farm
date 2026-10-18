@@ -86,22 +86,44 @@ with sync_playwright() as p:
         # SOFTM-persimmon-live-verification START: 감나무 기록 146장과 통합 뷰어를 실배포 환경에서 검증 (2026-10-15)
         page.goto(BASE + 'records/20261015-persimmon-grafting-guide/', wait_until='networkidle')
         assert page.locator('h1').first.inner_text().strip() == '2026-10-15 감나무 접수·접목 방법'
-        # SOFTM-persimmon-caption-verification START: 자막 표·검색·미검출 필터와 카드 전환을 실배포에서 검증 (2026-10-18)
+        # SOFTM-persimmon-caption-verification START: 상시 이미지 갤러리·독립 자막 표·구간 인사이트를 실배포에서 검증 (2026-10-18)
+        cards = page.locator('#gallery-grid .gallery-card')
+        assert page.locator('#gallery-grid').is_visible(), 'Persimmon image gallery must stay visible'
+        assert cards.count() == 146, 'Expected 146 preserved persimmon source images'
+        assert page.locator('#image-result-count').inner_text() == '146장'
         caption_rows = page.locator('#caption-table-body tr')
         assert caption_rows.count() == 146, 'Expected 146 persimmon caption table rows'
-        assert page.locator('#result-count').inner_text() == '146장 · 자막 130'
-        page.locator('#search').fill('고라니')
-        assert page.locator('#result-count').inner_text() == '9장 · 자막 9'
-        page.locator('#search').fill('')
+        assert page.locator('#caption-result-count').inner_text() == '146행 · 자막 130'
+        assert page.locator('.coverage-card').count() == 10, 'Expected 10 caption coverage groups'
+        assert page.locator('.insight-card strong').all_inner_texts() == ['146', '130', '16', '10']
+        assert page.locator('.caption-table th').all_inner_texts() == ['번호', '작업 구간', '추출 자막', '화면 설명', '원본']
+
+        page.locator('#image-search').fill('고라니')
+        assert page.locator('#image-result-count').inner_text() == '9장'
+        assert cards.count() == 9, 'Expected 9 gallery search results'
+        assert caption_rows.count() == 146, 'Gallery search must not alter caption table'
+        page.locator('#image-search').fill('')
+
+        page.locator('#caption-search').fill('고라니')
+        assert page.locator('#caption-result-count').inner_text() == '9행 · 자막 9'
+        assert caption_rows.count() == 9, 'Expected 9 caption search results'
+        assert cards.count() == 146, 'Caption search must not alter image gallery'
+        page.locator('#caption-search').fill('')
+
         page.locator('#caption-filter').select_option('without')
-        assert page.locator('#result-count').inner_text() == '16장 · 자막 0'
+        assert page.locator('#caption-result-count').inner_text() == '16행 · 자막 0'
         assert caption_rows.count() == 16, 'Expected 16 images without captions'
+        assert cards.count() == 146, 'Caption status filter must not alter image gallery'
         page.locator('#caption-filter').select_option('all')
-        page.locator('#card-view').click()
-        assert page.locator('#gallery-grid').is_visible(), 'Persimmon card view did not open'
-        # SOFTM-persimmon-caption-verification END: 자막 표·검색·미검출 필터와 카드 전환을 실배포에서 검증 (2026-10-18)
-        cards = page.locator('.gallery-card')
-        assert cards.count() == 146, 'Expected 146 preserved persimmon source images'
+
+        simulation_coverage = page.locator('.coverage-card').filter(has_text='돌감나무 대목 시연')
+        simulation_coverage.click()
+        assert page.locator('#caption-group-filter').input_value() == '돌감나무 대목 시연'
+        assert page.locator('#caption-result-count').inner_text() == '25행 · 자막 9'
+        assert caption_rows.count() == 25, 'Expected 25 simulation coverage rows'
+        simulation_coverage.click()
+        assert page.locator('#caption-result-count').inner_text() == '146행 · 자막 130'
+        # SOFTM-persimmon-caption-verification END: 상시 이미지 갤러리·독립 자막 표·구간 인사이트를 실배포에서 검증 (2026-10-18)
         thumbnails = page.locator('.gallery-card img')
         assert thumbnails.count() == 146, 'Expected 146 generated persimmon thumbnails'
         for index in [0, 72, 145]:
