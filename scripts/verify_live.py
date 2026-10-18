@@ -86,6 +86,20 @@ with sync_playwright() as p:
         # SOFTM-persimmon-live-verification START: 감나무 기록 146장과 통합 뷰어를 실배포 환경에서 검증 (2026-10-15)
         page.goto(BASE + 'records/20261015-persimmon-grafting-guide/', wait_until='networkidle')
         assert page.locator('h1').first.inner_text().strip() == '2026-10-15 감나무 접수·접목 방법'
+        # SOFTM-persimmon-caption-verification START: 자막 표·검색·미검출 필터와 카드 전환을 실배포에서 검증 (2026-10-18)
+        caption_rows = page.locator('#caption-table-body tr')
+        assert caption_rows.count() == 146, 'Expected 146 persimmon caption table rows'
+        assert page.locator('#result-count').inner_text() == '146장 · 자막 130'
+        page.locator('#search').fill('고라니')
+        assert page.locator('#result-count').inner_text() == '9장 · 자막 9'
+        page.locator('#search').fill('')
+        page.locator('#caption-filter').select_option('without')
+        assert page.locator('#result-count').inner_text() == '16장 · 자막 0'
+        assert caption_rows.count() == 16, 'Expected 16 images without captions'
+        page.locator('#caption-filter').select_option('all')
+        page.locator('#card-view').click()
+        assert page.locator('#gallery-grid').is_visible(), 'Persimmon card view did not open'
+        # SOFTM-persimmon-caption-verification END: 자막 표·검색·미검출 필터와 카드 전환을 실배포에서 검증 (2026-10-18)
         cards = page.locator('.gallery-card')
         assert cards.count() == 146, 'Expected 146 preserved persimmon source images'
         thumbnails = page.locator('.gallery-card img')
