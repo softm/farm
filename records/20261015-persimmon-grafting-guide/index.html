@@ -91,37 +91,55 @@
     .tools { display: flex; flex-wrap: wrap; gap: 9px; }
     .tools span { padding: 9px 12px; border: 1px solid #ccd8cb; border-radius: 10px; background: #f4f8f1; }
 
-    /* SOFTM-GRAFT-CAPTION-TABLE START: OCR 자막 검색·상태 필터·표/카드 전환 UI 추가 (2026-10-18) */
+    /* SOFTM-GRAFT-DUAL-VIEW START: 기존 이미지 갤러리를 유지하고 자막 표·구간 인사이트를 독립 영역으로 구성 (2026-10-18) */
     .gallery-shell { border: 1px solid var(--line); border-radius: 26px; background: rgba(255,253,247,.78); box-shadow: var(--shadow); overflow: hidden; }
-    .gallery-toolbar { position: sticky; top: 62px; z-index: 20; display: grid; grid-template-columns: minmax(240px, 1fr) minmax(170px, .4fr) minmax(150px, .34fr) auto auto; gap: 10px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,253,247,.94); backdrop-filter: blur(16px); }
+    .gallery-toolbar, .caption-toolbar { position: sticky; top: 62px; z-index: 20; display: grid; gap: 10px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,253,247,.94); backdrop-filter: blur(16px); }
+    .gallery-toolbar { grid-template-columns: minmax(280px, 1fr) minmax(190px, .45fr) auto; }
+    .caption-toolbar { grid-template-columns: minmax(280px, 1fr) minmax(190px, .45fr) minmax(170px, .4fr) auto; }
     .field { width: 100%; min-height: 46px; padding: 10px 13px; border: 1px solid #cfcfc4; border-radius: 12px; background: #fff; color: var(--ink); }
     .field:focus { outline: 3px solid rgba(47,106,79,.18); border-color: var(--green-2); }
     .result-count { align-self: center; white-space: nowrap; color: var(--muted); font-size: .9rem; }
-    .view-toggle { display: inline-flex; align-self: center; padding: 3px; border: 1px solid #cfcfc4; border-radius: 12px; background: #fff; }
-    .view-button { min-height: 38px; padding: 7px 11px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); white-space: nowrap; cursor: pointer; }
-    .view-button[aria-pressed="true"] { background: var(--green); color: #fff; font-weight: 800; }
     .caption-status-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: #f3f6ef; color: #43564d; font-size: .9rem; }
     .caption-status-bar strong { color: var(--green); }
     .csv-link { flex: 0 0 auto; color: var(--green-2); font-weight: 800; text-decoration: none; }
     .csv-link:hover, .csv-link:focus-visible { text-decoration: underline; }
+    .insight-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .insight-card { padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .insight-card strong { display: block; color: var(--green); font-size: clamp(1.65rem, 3vw, 2.35rem); line-height: 1.05; letter-spacing: -.04em; }
+    .insight-card span { display: block; margin-top: 7px; color: var(--muted); font-size: .88rem; }
+    .coverage-panel { margin-bottom: 18px; padding: 18px; border: 1px solid var(--line); border-radius: 22px; background: #eef2e9; }
+    .coverage-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 13px; }
+    .coverage-heading h3 { margin: 0; color: var(--green); font-size: 1.05rem; }
+    .coverage-heading p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .coverage-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .coverage-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 7px 12px; width: 100%; padding: 11px 12px; border: 1px solid #cbd6c7; border-radius: 13px; background: rgba(255,255,255,.78); color: var(--ink); text-align: left; cursor: pointer; }
+    .coverage-card:hover, .coverage-card:focus-visible, .coverage-card[aria-pressed="true"] { border-color: var(--green-2); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(47,106,79,.12); }
+    .coverage-name { overflow: hidden; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+    .coverage-count { color: var(--green-2); font-size: .84rem; font-weight: 850; white-space: nowrap; }
+    .coverage-range { grid-column: 1; color: var(--muted); font-size: .76rem; }
+    .coverage-track { grid-column: 2; align-self: center; width: 82px; height: 6px; overflow: hidden; border-radius: 99px; background: #d9dfd5; }
+    .coverage-track span { display: block; width: var(--coverage); height: 100%; border-radius: inherit; background: var(--green-2); }
+    .insight-note { margin: 13px 0 0; padding-top: 13px; border-top: 1px solid #d3dbd0; color: #43564d; font-size: .88rem; }
+    .insight-note strong { color: var(--orange); }
     .caption-table-panel { max-width: 100%; overflow-x: auto; background: #fff; }
-    .caption-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; }
+    .caption-table { width: 100%; min-width: 1040px; border-collapse: collapse; table-layout: fixed; }
     .caption-table th, .caption-table td { padding: 14px 16px; border-bottom: 1px solid #e6e3d9; text-align: left; vertical-align: top; }
     .caption-table th { position: sticky; top: 0; z-index: 2; background: #eef2e9; color: var(--green); font-size: .8rem; letter-spacing: .03em; }
     .caption-table th:nth-child(1) { width: 82px; }
     .caption-table th:nth-child(2) { width: 180px; }
-    .caption-table th:nth-child(4) { width: 124px; }
+    .caption-table th:nth-child(3) { width: 31%; }
+    .caption-table th:nth-child(4) { width: 31%; }
+    .caption-table th:nth-child(5) { width: 124px; }
     .caption-table tbody tr:hover { background: #fbfaf4; }
     .caption-sequence { font-weight: 900; font-variant-numeric: tabular-nums; color: var(--orange); }
     .caption-group { color: var(--green-2); font-size: .84rem; font-weight: 750; }
     .subtitle-text { display: block; color: #273b31; line-height: 1.58; }
     .subtitle-empty { color: #8a7664; font-weight: 800; }
-    .visual-note { display: block; margin-top: 4px; color: var(--muted); font-size: .8rem; }
+    .visual-note { display: block; color: var(--muted); line-height: 1.58; }
     .row-open { min-height: 36px; padding: 7px 11px; border: 1px solid #b9c8ba; border-radius: 9px; background: #f4f8f1; color: var(--green); font-weight: 800; white-space: nowrap; cursor: pointer; }
     .row-open:hover, .row-open:focus-visible { border-color: var(--green-2); background: var(--green); color: #fff; outline: none; }
     .caption-table-empty { padding: 56px 20px !important; text-align: center !important; color: var(--muted); }
     .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
-    .gallery[hidden], .caption-table-panel[hidden] { display: none; }
     .gallery-card { position: relative; min-width: 0; border: 0; padding: 0; background: var(--surface-strong); text-align: left; cursor: pointer; }
     .gallery-card:hover .thumb img, .gallery-card:focus-visible .thumb img { transform: scale(1.035); }
     .gallery-card:focus-visible { outline: 4px solid var(--orange); outline-offset: -4px; z-index: 2; }
@@ -132,7 +150,8 @@
     .card-group { color: var(--orange); font-size: .73rem; font-weight: 800; }
     .card-caption { display: -webkit-box; min-height: 2.9em; margin-top: 5px; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: #31443a; font-size: .88rem; line-height: 1.45; }
     .empty { grid-column: 1 / -1; padding: 56px 20px; background: #fff; text-align: center; color: var(--muted); }
-    /* SOFTM-GRAFT-CAPTION-TABLE END: OCR 자막 검색·상태 필터·표/카드 전환 UI 추가 (2026-10-18) */
+    #gallery, #captions { scroll-margin-top: 86px; }
+    /* SOFTM-GRAFT-DUAL-VIEW END: 기존 이미지 갤러리를 유지하고 자막 표·구간 인사이트를 독립 영역으로 구성 (2026-10-18) */
 
     .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; } /* SOFTM-GRAFT-CAPTION-DOWNLOAD: 자막 CSV 카드를 포함한 자동 반응형 열 구성 (2026-10-18) */
     .download-card { min-height: 126px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); text-decoration: none; }
@@ -185,12 +204,14 @@
       .process-row { grid-template-columns: 1fr; gap: 5px; }
       .process-row span { grid-column: auto; }
       .gallery-shell { margin-inline: -12px; border-radius: 18px; }
-      .gallery-toolbar { top: 56px; grid-template-columns: 1fr; }
-      /* SOFTM-GRAFT-CAPTION-MOBILE START: 모바일 표/카드 전환과 상태 안내 배치 개선 (2026-10-18) */
-      .view-toggle { width: 100%; }
-      .view-button { flex: 1; }
+      .gallery-toolbar, .caption-toolbar { top: 56px; grid-template-columns: 1fr; }
+      /* SOFTM-GRAFT-DUAL-MOBILE START: 모바일에서 갤러리·인사이트·자막 표를 순차 탐색하도록 배치 (2026-10-18) */
       .caption-status-bar { align-items: flex-start; }
-      /* SOFTM-GRAFT-CAPTION-MOBILE END: 모바일 표/카드 전환과 상태 안내 배치 개선 (2026-10-18) */
+      .insight-grid { grid-template-columns: 1fr 1fr; }
+      .coverage-heading { display: block; }
+      .coverage-heading p { margin-top: 4px; }
+      .coverage-list { grid-template-columns: 1fr; }
+      /* SOFTM-GRAFT-DUAL-MOBILE END: 모바일에서 갤러리·인사이트·자막 표를 순차 탐색하도록 배치 (2026-10-18) */
       .result-count { justify-self: end; }
       .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .card-copy { padding: 10px; }
@@ -215,11 +236,12 @@
     <div class="wrap">
       <a class="brand" href="#top">감나무 접목 기록</a>
       <div class="nav-links">
-        <!-- SOFTM-GRAFT-CAPTION-NAV START: 자막 표 바로가기 문구 반영 (2026-10-18) -->
+        <!-- SOFTM-GRAFT-DUAL-NAV START: 원본 이미지와 자막 표를 각각 바로 찾도록 탐색 링크 분리 (2026-10-18) -->
         <a href="#summary">핵심 정리</a>
         <a href="#process">작업 순서</a>
-        <a href="#gallery">자막 표</a>
-        <!-- SOFTM-GRAFT-CAPTION-NAV END: 자막 표 바로가기 문구 반영 (2026-10-18) -->
+        <a href="#gallery">원본 이미지</a>
+        <a href="#captions">자막 표</a>
+        <!-- SOFTM-GRAFT-DUAL-NAV END: 원본 이미지와 자막 표를 각각 바로 찾도록 탐색 링크 분리 (2026-10-18) -->
       </div>
     </div>
   </nav>
@@ -286,34 +308,56 @@
       </div>
     </section>
 
-    <!-- SOFTM-GRAFT-CAPTION-TABLE START: 146장 OCR 자막 목록을 검색·필터 가능한 표와 카드로 제공 (2026-10-18) -->
+    <!-- SOFTM-GRAFT-IMAGE-GALLERY START: 기존 146장 이미지 갤러리와 원본 뷰어를 상시 표시 (2026-10-18) -->
     <section class="section" id="gallery-section">
       <div class="wrap">
-        <div class="section-head" id="gallery"><h2>이미지 자막 146장</h2><p>원본 이미지에서 자막 130건을 추출하고 육안으로 교정했습니다. 자막이 없는 시연 화면 16장은 별도로 표시합니다.</p></div>
+        <div class="section-head" id="gallery"><h2>원본 이미지 146장</h2><p>기존 이미지 뷰를 그대로 유지했습니다. 썸네일을 누르면 원본·자막·이전/다음·확대 기능을 한 화면에서 볼 수 있습니다.</p></div>
         <div class="gallery-shell">
           <div class="gallery-toolbar">
-            <label><span hidden>검색어</span><input class="field" id="search" type="search" placeholder="자막·파일명·화면 설명 검색" autocomplete="off"></label>
-            <label><span hidden>작업 구간</span><select class="field" id="group-filter"><option value="all">모든 작업 구간</option></select></label>
-            <label><span hidden>자막 상태</span><select class="field" id="caption-filter"><option value="all">모든 자막 상태</option><option value="with">자막 있음</option><option value="without">자막 없음</option></select></label>
-            <div class="view-toggle" role="group" aria-label="목록 보기 방식">
-              <button class="view-button" id="table-view" type="button" aria-pressed="true">자막 표</button>
-              <button class="view-button" id="card-view" type="button" aria-pressed="false">이미지 카드</button>
-            </div>
-            <output class="result-count" id="result-count" aria-live="polite">146장 · 자막 130</output>
+            <label><span hidden>이미지 검색어</span><input class="field" id="image-search" type="search" placeholder="이미지·자막·파일명 검색" autocomplete="off"></label>
+            <label><span hidden>이미지 작업 구간</span><select class="field" id="image-group-filter"><option value="all">모든 작업 구간</option></select></label>
+            <output class="result-count" id="image-result-count" aria-live="polite">146장</output>
           </div>
-          <div class="caption-status-bar"><span><strong>OCR + 원본 대조</strong> · 자막 있음 130장 · 자막 없음 16장</span><a class="csv-link" href="captions.csv" download>자막 CSV 다운로드 ↓</a></div>
-          <div class="caption-table-panel" id="caption-table-panel">
-            <table class="caption-table">
-              <caption hidden>감나무 접수·접목 이미지 146장의 추출 자막 목록</caption>
-              <thead><tr><th scope="col">번호</th><th scope="col">작업 구간</th><th scope="col">추출 자막</th><th scope="col">원본</th></tr></thead>
-              <tbody id="caption-table-body"></tbody>
-            </table>
-          </div>
-          <div class="gallery" id="gallery-grid" aria-live="polite" hidden></div>
+          <div class="gallery" id="gallery-grid" aria-live="polite"></div>
         </div>
       </div>
     </section>
-    <!-- SOFTM-GRAFT-CAPTION-TABLE END: 146장 OCR 자막 목록을 검색·필터 가능한 표와 카드로 제공 (2026-10-18) -->
+    <!-- SOFTM-GRAFT-IMAGE-GALLERY END: 기존 146장 이미지 갤러리와 원본 뷰어를 상시 표시 (2026-10-18) -->
+
+    <!-- SOFTM-GRAFT-CAPTION-INSIGHT START: 자막 현황·구간별 커버리지·독립 검색 표 제공 (2026-10-18) -->
+    <section class="section" id="captions">
+      <div class="wrap">
+        <div class="section-head"><h2>자막 목록과 작업 흐름</h2><p>이미지 뷰와 별도로 자막을 빠르게 찾고 비교할 수 있습니다. 추출 자막과 화면 설명은 혼동하지 않도록 열을 분리했습니다.</p></div>
+        <div class="insight-grid" aria-label="자막 현황 요약">
+          <article class="insight-card"><strong id="insight-total">146</strong><span>전체 원본 화면</span></article>
+          <article class="insight-card"><strong id="insight-with-caption">130</strong><span>자막 있음 · 89%</span></article>
+          <article class="insight-card"><strong id="insight-without-caption">16</strong><span>자막 없음 · 11%</span></article>
+          <article class="insight-card"><strong id="insight-groups">10</strong><span>작업 흐름 구간</span></article>
+        </div>
+        <div class="coverage-panel">
+          <div class="coverage-heading"><h3>구간별 자막 커버리지</h3><p>구간을 누르면 아래 표가 해당 작업으로 좁혀집니다.</p></div>
+          <div class="coverage-list" id="coverage-list"></div>
+          <p class="insight-note" id="caption-insight-note"><strong>집중 구간</strong> 자막 없는 화면은 돌감나무 대목 시연 구간에 모여 있으며, 화면 설명 열로만 보완했습니다.</p>
+        </div>
+        <div class="gallery-shell">
+          <div class="caption-toolbar">
+            <label><span hidden>자막 검색어</span><input class="field" id="caption-search" type="search" placeholder="자막·화면 설명·파일명 검색" autocomplete="off"></label>
+            <label><span hidden>자막 작업 구간</span><select class="field" id="caption-group-filter"><option value="all">모든 작업 구간</option></select></label>
+            <label><span hidden>자막 상태</span><select class="field" id="caption-filter"><option value="all">모든 자막 상태</option><option value="with">자막 있음</option><option value="without">자막 없음</option></select></label>
+            <output class="result-count" id="caption-result-count" aria-live="polite">146행 · 자막 130</output>
+          </div>
+          <div class="caption-status-bar"><span><strong>OCR + 원본 대조</strong> · 자막과 화면 설명을 별도 관리</span><a class="csv-link" href="captions.csv" download>자막 CSV 다운로드 ↓</a></div>
+          <div class="caption-table-panel" id="caption-table-panel">
+            <table class="caption-table">
+              <caption hidden>감나무 접수·접목 이미지 146장의 추출 자막과 화면 설명 목록</caption>
+              <thead><tr><th scope="col">번호</th><th scope="col">작업 구간</th><th scope="col">추출 자막</th><th scope="col">화면 설명</th><th scope="col">원본</th></tr></thead>
+              <tbody id="caption-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SOFTM-GRAFT-CAPTION-INSIGHT END: 자막 현황·구간별 커버리지·독립 검색 표 제공 (2026-10-18) -->
 
     <section class="section" id="downloads">
       <div class="wrap">
@@ -358,18 +402,20 @@
 
   <script src="gallery-data.js"></script>
   <script>
-    /* SOFTM-GRAFT-VIEWER START: 검색·자막 표·카드 전환·라이트박스·키보드·스와이프·확대 기능 (2026-10-15, 자막 표 보강 2026-10-18) */
+    /* SOFTM-GRAFT-VIEWER START: 이미지 갤러리·독립 자막 표·구간 인사이트·라이트박스 기능 (2026-10-15, 분리 구성 2026-10-18) */
     (() => {
       const items = Array.isArray(window.GRAFT_ARCHIVE_ITEMS) ? window.GRAFT_ARCHIVE_ITEMS : [];
       const grid = document.querySelector('#gallery-grid');
-      const tablePanel = document.querySelector('#caption-table-panel');
       const tableBody = document.querySelector('#caption-table-body');
-      const search = document.querySelector('#search');
-      const groupFilter = document.querySelector('#group-filter');
+      const imageSearch = document.querySelector('#image-search');
+      const imageGroupFilter = document.querySelector('#image-group-filter');
+      const imageResultCount = document.querySelector('#image-result-count');
+      const captionSearch = document.querySelector('#caption-search');
+      const captionGroupFilter = document.querySelector('#caption-group-filter');
       const captionFilter = document.querySelector('#caption-filter');
-      const resultCount = document.querySelector('#result-count');
-      const tableViewButton = document.querySelector('#table-view');
-      const cardViewButton = document.querySelector('#card-view');
+      const captionResultCount = document.querySelector('#caption-result-count');
+      const coverageList = document.querySelector('#coverage-list');
+      const insightNote = document.querySelector('#caption-insight-note');
       const dialog = document.querySelector('#viewer');
       const media = document.querySelector('#viewer-media');
       const stage = document.querySelector('#viewer-stage');
@@ -379,31 +425,106 @@
       const counter = document.querySelector('#viewer-counter');
       const openOriginal = document.querySelector('#open-original');
       const downloadOriginal = document.querySelector('#download-original');
-      let visibleItems = items.slice();
+      let galleryItems = items.slice();
+      let captionItems = items.slice();
+      let viewerItems = items.slice();
       let activeIndex = 0;
       let scale = 1;
       let touchStartX = 0;
-      let currentView = 'table';
 
       /* SOFTM-GRAFT-NFC-PATH START: GitHub Pages에서 한글 원본 파일 경로를 조합형으로 요청 (2026-10-18) */
       const originalAssetPath = value => String(value || '').normalize('NFC');
       /* SOFTM-GRAFT-NFC-PATH END: GitHub Pages에서 한글 원본 파일 경로를 조합형으로 요청 (2026-10-18) */
 
-      [...new Set(items.map(item => item.group))].forEach(value => {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = value;
-        groupFilter.append(option);
+      const normalize = value => String(value || '').toLocaleLowerCase('ko-KR').normalize('NFC');
+      const groups = [...new Set(items.map(item => item.group))];
+      const groupStats = groups.map(groupName => {
+        const groupItems = items.filter(item => item.group === groupName);
+        const withCaption = groupItems.filter(item => item.subtitle).length;
+        return {
+          name: groupName,
+          total: groupItems.length,
+          withCaption,
+          withoutCaption: groupItems.length - withCaption,
+          first: groupItems[0]?.sequence || '',
+          last: groupItems.at(-1)?.sequence || ''
+        };
       });
 
-      const normalize = value => String(value || '').toLocaleLowerCase('ko-KR').normalize('NFC');
+      function populateGroupFilter(select) {
+        groups.forEach(value => {
+          const option = document.createElement('option');
+          option.value = value;
+          option.textContent = value;
+          select.append(option);
+        });
+      }
+
+      function syncCoverageState() {
+        coverageList.querySelectorAll('.coverage-card').forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset.group === captionGroupFilter.value));
+        });
+      }
+
+      function renderInsights() {
+        const withCaption = items.filter(item => item.subtitle).length;
+        const withoutCaption = items.length - withCaption;
+        document.querySelector('#insight-total').textContent = String(items.length);
+        document.querySelector('#insight-with-caption').textContent = String(withCaption);
+        document.querySelector('#insight-without-caption').textContent = String(withoutCaption);
+        document.querySelector('#insight-groups').textContent = String(groups.length);
+
+        const fragment = document.createDocumentFragment();
+        groupStats.forEach(stat => {
+          const button = document.createElement('button');
+          const percentage = stat.total ? Math.round(stat.withCaption / stat.total * 100) : 0;
+          button.className = 'coverage-card';
+          button.type = 'button';
+          button.dataset.group = stat.name;
+          button.setAttribute('aria-pressed', 'false');
+          button.setAttribute('aria-label', `${stat.name}, ${stat.total}장 중 자막 ${stat.withCaption}장. 표 필터 적용`);
+
+          const groupName = document.createElement('span');
+          groupName.className = 'coverage-name';
+          groupName.textContent = stat.name;
+          const count = document.createElement('span');
+          count.className = 'coverage-count';
+          count.textContent = `${stat.withCaption}/${stat.total} · ${percentage}%`;
+          const range = document.createElement('span');
+          range.className = 'coverage-range';
+          range.textContent = `${stat.first}–${stat.last}번`;
+          const track = document.createElement('span');
+          track.className = 'coverage-track';
+          track.setAttribute('aria-hidden', 'true');
+          const fill = document.createElement('span');
+          fill.style.setProperty('--coverage', `${percentage}%`);
+          track.append(fill);
+          button.append(groupName, count, range, track);
+          button.addEventListener('click', () => {
+            captionGroupFilter.value = captionGroupFilter.value === stat.name ? 'all' : stat.name;
+            renderCaptionTable();
+            document.querySelector('#caption-table-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+          fragment.append(button);
+        });
+        coverageList.replaceChildren(fragment);
+
+        const groupsWithoutCaptions = groupStats.filter(stat => stat.withoutCaption);
+        if (groupsWithoutCaptions.length === 1) {
+          const stat = groupsWithoutCaptions[0];
+          insightNote.replaceChildren();
+          const emphasis = document.createElement('strong');
+          emphasis.textContent = '집중 구간 · ';
+          insightNote.append(emphasis, `자막 없는 ${stat.withoutCaption}장은 모두 ${stat.name}(${stat.first}–${stat.last}번)에 있습니다. 자막이 없는 화면은 화면 설명 열로만 보완했습니다.`);
+        }
+      }
 
       function renderTable() {
         tableBody.replaceChildren();
-        if (!visibleItems.length) {
+        if (!captionItems.length) {
           const row = document.createElement('tr');
           const empty = document.createElement('td');
-          empty.colSpan = 4;
+          empty.colSpan = 5;
           empty.className = 'caption-table-empty';
           empty.textContent = '조건에 맞는 원본 화면이 없습니다.';
           row.append(empty);
@@ -412,7 +533,7 @@
         }
 
         const fragment = document.createDocumentFragment();
-        visibleItems.forEach((item, index) => {
+        captionItems.forEach((item, index) => {
           const row = document.createElement('tr');
           const sequenceCell = document.createElement('td');
           const sequence = document.createElement('span');
@@ -431,12 +552,12 @@
           subtitle.className = item.subtitle ? 'subtitle-text' : 'subtitle-text subtitle-empty';
           subtitle.textContent = item.subtitle || '자막 없음';
           subtitleCell.append(subtitle);
-          if (!item.subtitle) {
-            const visualNote = document.createElement('small');
-            visualNote.className = 'visual-note';
-            visualNote.textContent = `화면 설명: ${item.caption}`;
-            subtitleCell.append(visualNote);
-          }
+
+          const visualCell = document.createElement('td');
+          const visualNote = document.createElement('span');
+          visualNote.className = 'visual-note';
+          visualNote.textContent = item.caption;
+          visualCell.append(visualNote);
 
           const actionCell = document.createElement('td');
           const openButton = document.createElement('button');
@@ -444,10 +565,10 @@
           openButton.type = 'button';
           openButton.textContent = '원본 보기';
           openButton.setAttribute('aria-label', `${item.sequence}번 원본 이미지 보기`);
-          openButton.addEventListener('click', () => openViewer(index));
+          openButton.addEventListener('click', () => openViewer(captionItems, index));
           actionCell.append(openButton);
 
-          row.append(sequenceCell, groupCell, subtitleCell, actionCell);
+          row.append(sequenceCell, groupCell, subtitleCell, visualCell, actionCell);
           fragment.append(row);
         });
         tableBody.append(fragment);
@@ -455,7 +576,7 @@
 
       function renderCards() {
         grid.replaceChildren();
-        if (!visibleItems.length) {
+        if (!galleryItems.length) {
           const empty = document.createElement('p');
           empty.className = 'empty';
           empty.textContent = '조건에 맞는 원본 화면이 없습니다.';
@@ -464,7 +585,7 @@
         }
 
         const fragment = document.createDocumentFragment();
-        visibleItems.forEach((item, index) => {
+        galleryItems.forEach((item, index) => {
           const button = document.createElement('button');
           button.className = 'gallery-card';
           button.type = 'button';
@@ -491,25 +612,30 @@
           captionText.textContent = item.subtitle || `자막 없음 · ${item.caption}`;
           copy.append(groupText, captionText);
           button.append(thumb, copy);
-          button.addEventListener('click', () => openViewer(index));
+          button.addEventListener('click', () => openViewer(galleryItems, index));
           fragment.append(button);
         });
         grid.append(fragment);
       }
 
-      function applyView() {
-        const tableIsActive = currentView === 'table';
-        tablePanel.hidden = !tableIsActive;
-        grid.hidden = tableIsActive;
-        tableViewButton.setAttribute('aria-pressed', String(tableIsActive));
-        cardViewButton.setAttribute('aria-pressed', String(!tableIsActive));
+      function renderGallery() {
+        const query = normalize(imageSearch.value.trim());
+        const selectedGroup = imageGroupFilter.value;
+        galleryItems = items.filter(item => {
+          const inGroup = selectedGroup === 'all' || item.group === selectedGroup;
+          const haystack = normalize(`${item.file} ${item.caption} ${item.subtitle} ${item.group} ${item.keywords}`);
+          return inGroup && (!query || haystack.includes(query));
+        });
+        imageResultCount.value = `${galleryItems.length}장`;
+        imageResultCount.textContent = `${galleryItems.length}장`;
+        renderCards();
       }
 
-      function render() {
-        const query = normalize(search.value.trim());
-        const selectedGroup = groupFilter.value;
+      function renderCaptionTable() {
+        const query = normalize(captionSearch.value.trim());
+        const selectedGroup = captionGroupFilter.value;
         const selectedCaptionStatus = captionFilter.value;
-        visibleItems = items.filter(item => {
+        captionItems = items.filter(item => {
           const inGroup = selectedGroup === 'all' || item.group === selectedGroup;
           const matchesCaptionStatus = selectedCaptionStatus === 'all'
             || (selectedCaptionStatus === 'with' && Boolean(item.subtitle))
@@ -517,16 +643,15 @@
           const haystack = normalize(`${item.file} ${item.caption} ${item.subtitle} ${item.group} ${item.keywords}`);
           return inGroup && matchesCaptionStatus && (!query || haystack.includes(query));
         });
-        const subtitleCount = visibleItems.filter(item => item.subtitle).length;
-        resultCount.value = `${visibleItems.length}장 · 자막 ${subtitleCount}`;
-        resultCount.textContent = `${visibleItems.length}장 · 자막 ${subtitleCount}`;
+        const subtitleCount = captionItems.filter(item => item.subtitle).length;
+        captionResultCount.value = `${captionItems.length}행 · 자막 ${subtitleCount}`;
+        captionResultCount.textContent = `${captionItems.length}행 · 자막 ${subtitleCount}`;
         renderTable();
-        renderCards();
-        applyView();
+        syncCoverageState();
       }
 
       function updateViewer() {
-        const item = visibleItems[activeIndex];
+        const item = viewerItems[activeIndex];
         if (!item) return;
         scale = 1;
         media.replaceChildren();
@@ -540,13 +665,14 @@
         name.textContent = item.file;
         group.textContent = item.subtitle ? `${item.group} · 추출 자막` : `${item.group} · 자막 없음`;
         caption.textContent = item.subtitle || `자막 없음 · 화면 설명: ${item.caption}`;
-        counter.textContent = `${activeIndex + 1} / ${visibleItems.length}`;
+        counter.textContent = `${activeIndex + 1} / ${viewerItems.length}`;
         openOriginal.href = originalPath;
         downloadOriginal.href = originalPath;
         stage.scrollTo({ top: 0, left: 0 });
       }
 
-      function openViewer(index) {
+      function openViewer(sourceItems, index) {
+        viewerItems = sourceItems;
         activeIndex = index;
         updateViewer();
         if (typeof dialog.showModal === 'function') dialog.showModal();
@@ -560,8 +686,8 @@
       }
 
       function move(delta) {
-        if (!visibleItems.length) return;
-        activeIndex = (activeIndex + delta + visibleItems.length) % visibleItems.length;
+        if (!viewerItems.length) return;
+        activeIndex = (activeIndex + delta + viewerItems.length) % viewerItems.length;
         updateViewer();
       }
 
@@ -571,11 +697,11 @@
         if (img) img.style.transform = `scale(${scale})`;
       }
 
-      search.addEventListener('input', render);
-      groupFilter.addEventListener('change', render);
-      captionFilter.addEventListener('change', render);
-      tableViewButton.addEventListener('click', () => { currentView = 'table'; applyView(); });
-      cardViewButton.addEventListener('click', () => { currentView = 'card'; applyView(); });
+      imageSearch.addEventListener('input', renderGallery);
+      imageGroupFilter.addEventListener('change', renderGallery);
+      captionSearch.addEventListener('input', renderCaptionTable);
+      captionGroupFilter.addEventListener('change', renderCaptionTable);
+      captionFilter.addEventListener('change', renderCaptionTable);
       document.querySelector('#viewer-prev').addEventListener('click', () => move(-1));
       document.querySelector('#viewer-next').addEventListener('click', () => move(1));
       document.querySelector('#close-viewer').addEventListener('click', closeViewer);
@@ -602,9 +728,13 @@
         if (event.key === '-') zoom(-.25);
       });
 
-      render();
+      populateGroupFilter(imageGroupFilter);
+      populateGroupFilter(captionGroupFilter);
+      renderInsights();
+      renderGallery();
+      renderCaptionTable();
     })();
-    /* SOFTM-GRAFT-VIEWER END: 검색·자막 표·카드 전환·라이트박스·키보드·스와이프·확대 기능 (2026-10-15, 자막 표 보강 2026-10-18) */
+    /* SOFTM-GRAFT-VIEWER END: 이미지 갤러리·독립 자막 표·구간 인사이트·라이트박스 기능 (2026-10-15, 분리 구성 2026-10-18) */
   </script>
 </body>
 </html>
