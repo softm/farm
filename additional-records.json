@@ -44,17 +44,17 @@
     "originalPhotoCount": 146,
     "originalImageCount": 146,
     "previewCount": 146,
-    "sourceFileCount": 300,
-    "expectedSourceFileCount": 300,
+    "sourceFileCount": 305,
+    "expectedSourceFileCount": 305,
     "sourceIntegrityComplete": true,
     "missingFiles": [],
     "status": "source-complete",
-    "description": "접수 채취 시기·선별·0~5℃ 저장·조제·접목·야생동물 피해 방지를 원본 화면 146장으로 정리한 공개 아카이브.",
+    "description": "접수 채취·저장·조제·접목·피해 방지를 원본 화면 146장과 교정 자막 130건(자막 없음 16장)으로 정리한 검색형 공개 아카이브.",
     "files": {
       "images": 146,
       "videos": 0,
       "audio": 0,
-      "documents": 5
+      "documents": 7
     }
   },
   {
