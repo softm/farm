@@ -3,10 +3,15 @@
 
 감나무 접수 채취, 저온 보관, 접수 조제, 대목 절단과 결속, 절단면 도포, 야생동물 피해 방지까지를 화면 캡처 146장으로 정리한 공개 아카이브입니다.
 
+<!-- SOFTM-GRAFT-CAPTION-DOC START: 146장 OCR 자막 표와 CSV 산출물 안내 추가 (2026-10-18) -->
+원본 146장을 한국어 OCR로 다시 판독하고 화면과 대조해 자막 130건을 정리했습니다. 자막이 없는 시연 화면 16장은 임의 문장을 만들지 않고 `자막 없음`으로 구분했습니다. 통합 HTML에서는 자막·파일명·화면 설명 검색, 작업 구간·자막 유무 필터, 자막 표·이미지 카드 전환을 지원합니다.
+<!-- SOFTM-GRAFT-CAPTION-DOC END: 146장 OCR 자막 표와 CSV 산출물 안내 추가 (2026-10-18) -->
+
 ## 바로 보기
 
 - [통합 HTML 갤러리](index.html)
 - [상세 Markdown 기록](20261015_감나무_접수_접목방법.md)
+- [이미지별 교정 자막 CSV](captions.csv)
 - [원본 전수 목록과 SHA-256](source-inventory.csv)
 - [아카이브 매니페스트](archive-manifest.json)
 - [검증 보고서](verification-report.md)
@@ -25,11 +30,15 @@
 ## 자료 구성
 
 - 원본 이미지: 146장
+- 추출·교정 자막: 130건
+- 자막 없는 시연 화면: 16장
 - 바이트가 같은 중복 원본: 0장
 - 원본 형식: PNG
 - 대표 문서: `index.html`
 - 원본 목록: `source-inventory.csv`
 - 웹용 파생 썸네일: 146장(`thumbnails/`)
+- OCR 재실행: `swift scripts/extract-captions.swift "$PWD" > captions-ocr.tsv`
+- 자막 데이터·CSV 재생성: `node scripts/build-caption-data.mjs "$PWD"`
 
 원본 파일명과 바이트는 변경하지 않았습니다. 웹용 썸네일은 원본과 구분되는 생성물입니다.
 <!-- SOFTM-GRAFT-ARCHIVE END: 감나무 접수·접목 원본 146장 아카이브 안내 추가 (2026-10-15) -->

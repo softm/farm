@@ -91,24 +91,50 @@
     .tools { display: flex; flex-wrap: wrap; gap: 9px; }
     .tools span { padding: 9px 12px; border: 1px solid #ccd8cb; border-radius: 10px; background: #f4f8f1; }
 
+    /* SOFTM-GRAFT-CAPTION-TABLE START: OCR 자막 검색·상태 필터·표/카드 전환 UI 추가 (2026-10-18) */
     .gallery-shell { border: 1px solid var(--line); border-radius: 26px; background: rgba(255,253,247,.78); box-shadow: var(--shadow); overflow: hidden; }
-    .gallery-toolbar { position: sticky; top: 62px; z-index: 20; display: grid; grid-template-columns: minmax(220px, 1fr) minmax(180px, .44fr) auto; gap: 10px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,253,247,.94); backdrop-filter: blur(16px); }
+    .gallery-toolbar { position: sticky; top: 62px; z-index: 20; display: grid; grid-template-columns: minmax(240px, 1fr) minmax(170px, .4fr) minmax(150px, .34fr) auto auto; gap: 10px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,253,247,.94); backdrop-filter: blur(16px); }
     .field { width: 100%; min-height: 46px; padding: 10px 13px; border: 1px solid #cfcfc4; border-radius: 12px; background: #fff; color: var(--ink); }
     .field:focus { outline: 3px solid rgba(47,106,79,.18); border-color: var(--green-2); }
     .result-count { align-self: center; white-space: nowrap; color: var(--muted); font-size: .9rem; }
+    .view-toggle { display: inline-flex; align-self: center; padding: 3px; border: 1px solid #cfcfc4; border-radius: 12px; background: #fff; }
+    .view-button { min-height: 38px; padding: 7px 11px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); white-space: nowrap; cursor: pointer; }
+    .view-button[aria-pressed="true"] { background: var(--green); color: #fff; font-weight: 800; }
+    .caption-status-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: #f3f6ef; color: #43564d; font-size: .9rem; }
+    .caption-status-bar strong { color: var(--green); }
+    .csv-link { flex: 0 0 auto; color: var(--green-2); font-weight: 800; text-decoration: none; }
+    .csv-link:hover, .csv-link:focus-visible { text-decoration: underline; }
+    .caption-table-panel { max-width: 100%; overflow-x: auto; background: #fff; }
+    .caption-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; }
+    .caption-table th, .caption-table td { padding: 14px 16px; border-bottom: 1px solid #e6e3d9; text-align: left; vertical-align: top; }
+    .caption-table th { position: sticky; top: 0; z-index: 2; background: #eef2e9; color: var(--green); font-size: .8rem; letter-spacing: .03em; }
+    .caption-table th:nth-child(1) { width: 82px; }
+    .caption-table th:nth-child(2) { width: 180px; }
+    .caption-table th:nth-child(4) { width: 124px; }
+    .caption-table tbody tr:hover { background: #fbfaf4; }
+    .caption-sequence { font-weight: 900; font-variant-numeric: tabular-nums; color: var(--orange); }
+    .caption-group { color: var(--green-2); font-size: .84rem; font-weight: 750; }
+    .subtitle-text { display: block; color: #273b31; line-height: 1.58; }
+    .subtitle-empty { color: #8a7664; font-weight: 800; }
+    .visual-note { display: block; margin-top: 4px; color: var(--muted); font-size: .8rem; }
+    .row-open { min-height: 36px; padding: 7px 11px; border: 1px solid #b9c8ba; border-radius: 9px; background: #f4f8f1; color: var(--green); font-weight: 800; white-space: nowrap; cursor: pointer; }
+    .row-open:hover, .row-open:focus-visible { border-color: var(--green-2); background: var(--green); color: #fff; outline: none; }
+    .caption-table-empty { padding: 56px 20px !important; text-align: center !important; color: var(--muted); }
     .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); }
+    .gallery[hidden], .caption-table-panel[hidden] { display: none; }
     .gallery-card { position: relative; min-width: 0; border: 0; padding: 0; background: var(--surface-strong); text-align: left; cursor: pointer; }
     .gallery-card:hover .thumb img, .gallery-card:focus-visible .thumb img { transform: scale(1.035); }
     .gallery-card:focus-visible { outline: 4px solid var(--orange); outline-offset: -4px; z-index: 2; }
-    .thumb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #dfe5dc; }
+    .thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #dfe5dc; }
     .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .24s ease; }
     .sequence { position: absolute; left: 10px; top: 10px; padding: 5px 8px; border-radius: 8px; color: #fff; background: rgba(15,37,28,.82); font-size: .75rem; font-weight: 850; }
-    .card-copy { padding: 13px 14px 15px; }
+    .card-copy { display: block; padding: 13px 14px 15px; }
     .card-group { color: var(--orange); font-size: .73rem; font-weight: 800; }
     .card-caption { display: -webkit-box; min-height: 2.9em; margin-top: 5px; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: #31443a; font-size: .88rem; line-height: 1.45; }
     .empty { grid-column: 1 / -1; padding: 56px 20px; background: #fff; text-align: center; color: var(--muted); }
+    /* SOFTM-GRAFT-CAPTION-TABLE END: OCR 자막 검색·상태 필터·표/카드 전환 UI 추가 (2026-10-18) */
 
-    .downloads { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; } /* SOFTM-GRAFT-CAPTION-DOWNLOAD: 자막 CSV 카드를 포함한 자동 반응형 열 구성 (2026-10-18) */
     .download-card { min-height: 126px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); text-decoration: none; }
     .download-card:hover, .download-card:focus-visible { border-color: var(--green-2); transform: translateY(-2px); }
     .download-card strong { display: block; margin-bottom: 6px; }
@@ -132,7 +158,7 @@
     .viewer-nav.prev { left: 12px; }
     .viewer-nav.next { right: 12px; }
     .viewer-counter { white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .viewer-caption { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #c7d0ca; }
+    .viewer-caption { min-width: 0; color: #c7d0ca; line-height: 1.4; } /* SOFTM-GRAFT-CAPTION-VIEWER: 긴 추출 자막 전체 줄바꿈 표시 (2026-10-18) */
     .close { font-size: 1.15rem; }
 
     footer { padding: 34px 0 54px; color: var(--muted); font-size: .88rem; }
@@ -160,6 +186,11 @@
       .process-row span { grid-column: auto; }
       .gallery-shell { margin-inline: -12px; border-radius: 18px; }
       .gallery-toolbar { top: 56px; grid-template-columns: 1fr; }
+      /* SOFTM-GRAFT-CAPTION-MOBILE START: 모바일 표/카드 전환과 상태 안내 배치 개선 (2026-10-18) */
+      .view-toggle { width: 100%; }
+      .view-button { flex: 1; }
+      .caption-status-bar { align-items: flex-start; }
+      /* SOFTM-GRAFT-CAPTION-MOBILE END: 모바일 표/카드 전환과 상태 안내 배치 개선 (2026-10-18) */
       .result-count { justify-self: end; }
       .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .card-copy { padding: 10px; }
@@ -184,9 +215,11 @@
     <div class="wrap">
       <a class="brand" href="#top">감나무 접목 기록</a>
       <div class="nav-links">
+        <!-- SOFTM-GRAFT-CAPTION-NAV START: 자막 표 바로가기 문구 반영 (2026-10-18) -->
         <a href="#summary">핵심 정리</a>
         <a href="#process">작업 순서</a>
-        <a href="#gallery">원본 146장</a>
+        <a href="#gallery">자막 표</a>
+        <!-- SOFTM-GRAFT-CAPTION-NAV END: 자막 표 바로가기 문구 반영 (2026-10-18) -->
       </div>
     </div>
   </nav>
@@ -198,10 +231,14 @@
         <h1>2026-10-15 감나무 접수·접목 방법</h1>
         <p class="lead">눈이 움직이기 전 접수를 채취해 0~5℃로 보관하고, 살아 있는 눈을 확인해 조제한 뒤 대목에 맞춰 결속·밀봉하는 전 과정을 146장의 원본 화면으로 정리했습니다.</p>
         <div class="hero-meta" aria-label="아카이브 정보">
+          <!-- SOFTM-GRAFT-CAPTION-COUNT START: 자막 추출·미검출 수량 표시 (2026-10-18) -->
           <span class="badge"><strong>146</strong> 원본 PNG</span>
+          <span class="badge"><strong>130</strong> 자막 화면</span>
+          <span class="badge"><strong>16</strong> 자막 없음</span>
           <span class="badge"><strong>0</strong> 동일 해시 중복</span>
           <span class="badge"><strong>10</strong> 작업 구간</span>
           <span class="badge"><strong>공개</strong> 아카이브</span>
+          <!-- SOFTM-GRAFT-CAPTION-COUNT END: 자막 추출·미검출 수량 표시 (2026-10-18) -->
           <a class="badge source-link" href="https://www.youtube.com/watch?v=0GeX_SlVFo8&amp;t=1s" target="_blank" rel="noopener noreferrer"><strong>출처</strong> 영동군농업기술센터 · 정말 쉽다 감나무 접목 ↗</a>
         </div>
       </div>
@@ -249,24 +286,42 @@
       </div>
     </section>
 
+    <!-- SOFTM-GRAFT-CAPTION-TABLE START: 146장 OCR 자막 목록을 검색·필터 가능한 표와 카드로 제공 (2026-10-18) -->
     <section class="section" id="gallery-section">
       <div class="wrap">
-        <div class="section-head" id="gallery"><h2>원본 화면 146장</h2><p>썸네일을 누르면 통합 뷰어가 열립니다. 방향키·이전/다음·확대/축소·모바일 스와이프를 지원합니다.</p></div>
+        <div class="section-head" id="gallery"><h2>이미지 자막 146장</h2><p>원본 이미지에서 자막 130건을 추출하고 육안으로 교정했습니다. 자막이 없는 시연 화면 16장은 별도로 표시합니다.</p></div>
         <div class="gallery-shell">
           <div class="gallery-toolbar">
-            <label><span hidden>검색어</span><input class="field" id="search" type="search" placeholder="파일명·설명 검색" autocomplete="off"></label>
+            <label><span hidden>검색어</span><input class="field" id="search" type="search" placeholder="자막·파일명·화면 설명 검색" autocomplete="off"></label>
             <label><span hidden>작업 구간</span><select class="field" id="group-filter"><option value="all">모든 작업 구간</option></select></label>
-            <output class="result-count" id="result-count" aria-live="polite">146장</output>
+            <label><span hidden>자막 상태</span><select class="field" id="caption-filter"><option value="all">모든 자막 상태</option><option value="with">자막 있음</option><option value="without">자막 없음</option></select></label>
+            <div class="view-toggle" role="group" aria-label="목록 보기 방식">
+              <button class="view-button" id="table-view" type="button" aria-pressed="true">자막 표</button>
+              <button class="view-button" id="card-view" type="button" aria-pressed="false">이미지 카드</button>
+            </div>
+            <output class="result-count" id="result-count" aria-live="polite">146장 · 자막 130</output>
           </div>
-          <div class="gallery" id="gallery-grid" aria-live="polite"></div>
+          <div class="caption-status-bar"><span><strong>OCR + 원본 대조</strong> · 자막 있음 130장 · 자막 없음 16장</span><a class="csv-link" href="captions.csv" download>자막 CSV 다운로드 ↓</a></div>
+          <div class="caption-table-panel" id="caption-table-panel">
+            <table class="caption-table">
+              <caption hidden>감나무 접수·접목 이미지 146장의 추출 자막 목록</caption>
+              <thead><tr><th scope="col">번호</th><th scope="col">작업 구간</th><th scope="col">추출 자막</th><th scope="col">원본</th></tr></thead>
+              <tbody id="caption-table-body"></tbody>
+            </table>
+          </div>
+          <div class="gallery" id="gallery-grid" aria-live="polite" hidden></div>
         </div>
       </div>
     </section>
+    <!-- SOFTM-GRAFT-CAPTION-TABLE END: 146장 OCR 자막 목록을 검색·필터 가능한 표와 카드로 제공 (2026-10-18) -->
 
     <section class="section" id="downloads">
       <div class="wrap">
         <div class="section-head"><h2>문서와 검증 자료</h2><p>원본별 SHA-256과 생성물 구분은 매니페스트에서 확인할 수 있습니다.</p></div>
         <div class="downloads">
+          <!-- SOFTM-GRAFT-CAPTION-DOWNLOAD START: 교정 자막 CSV 다운로드 추가 (2026-10-18) -->
+          <a class="download-card" href="captions.csv" download><strong>자막 CSV</strong><span>146장 번호·작업 구간·자막 여부·교정 자막</span></a>
+          <!-- SOFTM-GRAFT-CAPTION-DOWNLOAD END: 교정 자막 CSV 다운로드 추가 (2026-10-18) -->
           <a class="download-card" href="20261015_감나무_접수_접목방법.md"><strong>상세 Markdown</strong><span>자막과 시연을 작업 순서로 재구성한 본문</span></a>
           <a class="download-card" href="README.md"><strong>README</strong><span>아카이브 개요와 빠른 링크</span></a>
           <a class="download-card" href="source-inventory.csv"><strong>원본 목록</strong><span>146장 파일명·크기·해시·화면 크기</span></a>
@@ -303,13 +358,18 @@
 
   <script src="gallery-data.js"></script>
   <script>
-    /* SOFTM-GRAFT-VIEWER START: 검색·필터·라이트박스·키보드·스와이프·확대 기능 추가 (2026-10-15) */
+    /* SOFTM-GRAFT-VIEWER START: 검색·자막 표·카드 전환·라이트박스·키보드·스와이프·확대 기능 (2026-10-15, 자막 표 보강 2026-10-18) */
     (() => {
       const items = Array.isArray(window.GRAFT_ARCHIVE_ITEMS) ? window.GRAFT_ARCHIVE_ITEMS : [];
       const grid = document.querySelector('#gallery-grid');
+      const tablePanel = document.querySelector('#caption-table-panel');
+      const tableBody = document.querySelector('#caption-table-body');
       const search = document.querySelector('#search');
       const groupFilter = document.querySelector('#group-filter');
+      const captionFilter = document.querySelector('#caption-filter');
       const resultCount = document.querySelector('#result-count');
+      const tableViewButton = document.querySelector('#table-view');
+      const cardViewButton = document.querySelector('#card-view');
       const dialog = document.querySelector('#viewer');
       const media = document.querySelector('#viewer-media');
       const stage = document.querySelector('#viewer-stage');
@@ -323,10 +383,11 @@
       let activeIndex = 0;
       let scale = 1;
       let touchStartX = 0;
+      let currentView = 'table';
 
-      /* SOFTM-GRAFT-NFC-PATH START: macOS 분해형 한글 파일명을 GitHub Pages가 제공하는 조합형 URL로 변환 (2026-10-15) */
+      /* SOFTM-GRAFT-NFC-PATH START: GitHub Pages에서 한글 원본 파일 경로를 조합형으로 요청 (2026-10-18) */
       const originalAssetPath = value => String(value || '').normalize('NFC');
-      /* SOFTM-GRAFT-NFC-PATH END: macOS 분해형 한글 파일명을 GitHub Pages가 제공하는 조합형 URL로 변환 (2026-10-15) */
+      /* SOFTM-GRAFT-NFC-PATH END: GitHub Pages에서 한글 원본 파일 경로를 조합형으로 요청 (2026-10-18) */
 
       [...new Set(items.map(item => item.group))].forEach(value => {
         const option = document.createElement('option');
@@ -337,17 +398,63 @@
 
       const normalize = value => String(value || '').toLocaleLowerCase('ko-KR').normalize('NFC');
 
-      function render() {
-        const query = normalize(search.value.trim());
-        const selectedGroup = groupFilter.value;
-        visibleItems = items.filter(item => {
-          const inGroup = selectedGroup === 'all' || item.group === selectedGroup;
-          const haystack = normalize(`${item.file} ${item.caption} ${item.group} ${item.keywords}`);
-          return inGroup && (!query || haystack.includes(query));
+      function renderTable() {
+        tableBody.replaceChildren();
+        if (!visibleItems.length) {
+          const row = document.createElement('tr');
+          const empty = document.createElement('td');
+          empty.colSpan = 4;
+          empty.className = 'caption-table-empty';
+          empty.textContent = '조건에 맞는 원본 화면이 없습니다.';
+          row.append(empty);
+          tableBody.append(row);
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        visibleItems.forEach((item, index) => {
+          const row = document.createElement('tr');
+          const sequenceCell = document.createElement('td');
+          const sequence = document.createElement('span');
+          sequence.className = 'caption-sequence';
+          sequence.textContent = item.sequence;
+          sequenceCell.append(sequence);
+
+          const groupCell = document.createElement('td');
+          const groupText = document.createElement('span');
+          groupText.className = 'caption-group';
+          groupText.textContent = item.group;
+          groupCell.append(groupText);
+
+          const subtitleCell = document.createElement('td');
+          const subtitle = document.createElement('span');
+          subtitle.className = item.subtitle ? 'subtitle-text' : 'subtitle-text subtitle-empty';
+          subtitle.textContent = item.subtitle || '자막 없음';
+          subtitleCell.append(subtitle);
+          if (!item.subtitle) {
+            const visualNote = document.createElement('small');
+            visualNote.className = 'visual-note';
+            visualNote.textContent = `화면 설명: ${item.caption}`;
+            subtitleCell.append(visualNote);
+          }
+
+          const actionCell = document.createElement('td');
+          const openButton = document.createElement('button');
+          openButton.className = 'row-open';
+          openButton.type = 'button';
+          openButton.textContent = '원본 보기';
+          openButton.setAttribute('aria-label', `${item.sequence}번 원본 이미지 보기`);
+          openButton.addEventListener('click', () => openViewer(index));
+          actionCell.append(openButton);
+
+          row.append(sequenceCell, groupCell, subtitleCell, actionCell);
+          fragment.append(row);
         });
+        tableBody.append(fragment);
+      }
+
+      function renderCards() {
         grid.replaceChildren();
-        resultCount.value = `${visibleItems.length}장`;
-        resultCount.textContent = `${visibleItems.length}장`;
         if (!visibleItems.length) {
           const empty = document.createElement('p');
           empty.className = 'empty';
@@ -355,13 +462,14 @@
           grid.append(empty);
           return;
         }
+
         const fragment = document.createDocumentFragment();
         visibleItems.forEach((item, index) => {
           const button = document.createElement('button');
           button.className = 'gallery-card';
           button.type = 'button';
           button.dataset.index = String(index);
-          button.setAttribute('aria-label', `${item.sequence}번 원본 확대: ${item.caption}`);
+          button.setAttribute('aria-label', `${item.sequence}번 원본 확대: ${item.subtitle || item.caption}`);
           const thumb = document.createElement('span');
           thumb.className = 'thumb';
           const img = document.createElement('img');
@@ -380,7 +488,7 @@
           groupText.textContent = item.group;
           const captionText = document.createElement('span');
           captionText.className = 'card-caption';
-          captionText.textContent = item.caption;
+          captionText.textContent = item.subtitle || `자막 없음 · ${item.caption}`;
           copy.append(groupText, captionText);
           button.append(thumb, copy);
           button.addEventListener('click', () => openViewer(index));
@@ -389,21 +497,49 @@
         grid.append(fragment);
       }
 
+      function applyView() {
+        const tableIsActive = currentView === 'table';
+        tablePanel.hidden = !tableIsActive;
+        grid.hidden = tableIsActive;
+        tableViewButton.setAttribute('aria-pressed', String(tableIsActive));
+        cardViewButton.setAttribute('aria-pressed', String(!tableIsActive));
+      }
+
+      function render() {
+        const query = normalize(search.value.trim());
+        const selectedGroup = groupFilter.value;
+        const selectedCaptionStatus = captionFilter.value;
+        visibleItems = items.filter(item => {
+          const inGroup = selectedGroup === 'all' || item.group === selectedGroup;
+          const matchesCaptionStatus = selectedCaptionStatus === 'all'
+            || (selectedCaptionStatus === 'with' && Boolean(item.subtitle))
+            || (selectedCaptionStatus === 'without' && !item.subtitle);
+          const haystack = normalize(`${item.file} ${item.caption} ${item.subtitle} ${item.group} ${item.keywords}`);
+          return inGroup && matchesCaptionStatus && (!query || haystack.includes(query));
+        });
+        const subtitleCount = visibleItems.filter(item => item.subtitle).length;
+        resultCount.value = `${visibleItems.length}장 · 자막 ${subtitleCount}`;
+        resultCount.textContent = `${visibleItems.length}장 · 자막 ${subtitleCount}`;
+        renderTable();
+        renderCards();
+        applyView();
+      }
+
       function updateViewer() {
         const item = visibleItems[activeIndex];
         if (!item) return;
-        const originalPath = originalAssetPath(item.file);
         scale = 1;
         media.replaceChildren();
         const img = new Image();
         img.alt = item.caption;
+        const originalPath = originalAssetPath(item.file);
         img.src = originalPath;
         img.decoding = 'async';
         img.style.transform = `scale(${scale})`;
         media.append(img);
         name.textContent = item.file;
-        group.textContent = item.group;
-        caption.textContent = item.caption;
+        group.textContent = item.subtitle ? `${item.group} · 추출 자막` : `${item.group} · 자막 없음`;
+        caption.textContent = item.subtitle || `자막 없음 · 화면 설명: ${item.caption}`;
         counter.textContent = `${activeIndex + 1} / ${visibleItems.length}`;
         openOriginal.href = originalPath;
         downloadOriginal.href = originalPath;
@@ -437,6 +573,9 @@
 
       search.addEventListener('input', render);
       groupFilter.addEventListener('change', render);
+      captionFilter.addEventListener('change', render);
+      tableViewButton.addEventListener('click', () => { currentView = 'table'; applyView(); });
+      cardViewButton.addEventListener('click', () => { currentView = 'card'; applyView(); });
       document.querySelector('#viewer-prev').addEventListener('click', () => move(-1));
       document.querySelector('#viewer-next').addEventListener('click', () => move(1));
       document.querySelector('#close-viewer').addEventListener('click', closeViewer);
@@ -465,7 +604,7 @@
 
       render();
     })();
-    /* SOFTM-GRAFT-VIEWER END: 검색·필터·라이트박스·키보드·스와이프·확대 기능 추가 (2026-10-15) */
+    /* SOFTM-GRAFT-VIEWER END: 검색·자막 표·카드 전환·라이트박스·키보드·스와이프·확대 기능 (2026-10-15, 자막 표 보강 2026-10-18) */
   </script>
 </body>
 </html>
