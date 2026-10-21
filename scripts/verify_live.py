@@ -10,6 +10,8 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://softm.github.io/farm/'
 expected = json.loads((ROOT / 'build-verification.json').read_text(encoding='utf-8'))
+published_index = json.loads((ROOT / '_site' / 'archive-index.json').read_text(encoding='utf-8'))
+expected_record_count = sum(record.get('visibility') == 'public' for record in published_index['records'])
 results = {'records': expected['records'], 'http': [], 'browser': [], 'sprinklerVerified': False}
 failed = []
 
@@ -50,7 +52,7 @@ with sync_playwright() as p:
         page.goto(BASE, wait_until='networkidle')
         page.wait_for_selector('.record')
         page.wait_for_function("document.body.innerText.includes('스프링클러 배관 나사 규격 정리')")
-        assert page.locator('.record').count() == 6, 'Expected five farm public records'  # SOFTM-farm-record-count: 감나무 기록을 포함한 공개 기록 수 검증 (2026-10-15)
+        assert page.locator('.record').count() == expected_record_count, f'Expected {expected_record_count} farm public records'
         page.locator('#q').fill('스프링클러')
         assert page.locator('.record').count() == 1
         visible = page.locator('.record:visible')
@@ -165,7 +167,7 @@ with sync_playwright() as p:
         page.screenshot(path=str(ROOT / f'verified-{width}.png'), full_page=True)
         results['browser'].append({
             'viewport': [width,height],
-            'farmRecordCount': 6,  # SOFTM-farm-record-count-result: 감나무 기록 포함 집계 저장 (2026-10-15)
+            'farmRecordCount': expected_record_count,
             'sprinklerImages': 3,
             'persimmonImages': 146,  # SOFTM-persimmon-image-result: 감나무 원본 이미지 검증 수 저장 (2026-10-15)
             'viewerPreviousNext': True,
@@ -185,3 +187,4 @@ print(json.dumps({
     'sprinklerVerified': results['sprinklerVerified'],
     'httpFileCount': len(results['http'])
 }, ensure_ascii=False))
+
