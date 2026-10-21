@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "id": "20261022-farm-excavator-license",
+  "title": "농기계·굴착기면허·소형건설기계조종면허",
+  "inputName": "농기계_굴착기면허_소형건설기계조종면허",
+  "sourceTitle": "농기계 및 굴착기 자격/면허 체계 완벽 정리",
+  "date": "2026-10-22",
+  "dateBasis": "archive_created",
+  "eventDate": null,
+  "sourceDocumentDate": null,
+  "pdfCreatedAt": "2026-10-21T23:59:01+09:00",
+  "visibility": "public",
+  "project": "농업·농사",
+  "repository": "softm/farm",
+  "url": "https://softm.github.io/farm/records/20261022-farm-excavator-license/",
+  "entryType": "markdown-generated",
+  "entrySource": "README.md",
+  "entry": "index.html",
+  "generatedHtml": true,
+  "sourceSha256": "3f8ca1373acdf5fab99e612f1559ccab8797daed8e2b3baf86add7201b506834",
+  "entrySha256": "00b4ee78a3aea19d919b44d8c711ee318226064410c052d37ed50cc70e3021f7",
+  "rendererVersion": "marked-17.0.5",
+  "originalFileCount": 3,
+  "originalImageCount": 2,
+  "originalDocumentCount": 1,
+  "pdfPageCount": 2,
+  "derivedImageCount": 2,
+  "sourceIntegrityComplete": true,
+  "missingFiles": [],
+  "contentVerification": {
+    "checkedAt": "2026-10-22",
+    "scope": [
+      "자격/면허 발급 구분",
+      "3톤 미만 굴착기 교육",
+      "농업기계 도로 운행 면허 일반화 정정",
+      "농업용 트랙터 부착 로더 분류"
+    ],
+    "notVerified": [
+      "실기시험 세부 배점·복장·실격 기준",
+      "서산시 기종별 현행 임대요건"
+    ]
+  },
+  "archiveZip": "downloads/20261022_농기계_굴착기면허_소형건설기계조종면허_MD_HTML_전체자료.zip",
+  "zipHashFile": "downloads/SHA256.txt",
+  "hashExclusions": [
+    "archive-manifest.json",
+    "downloads/"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 12036,
+      "sha256": "3f8ca1373acdf5fab99e612f1559ccab8797daed8e2b3baf86add7201b506834",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    },
+    {
+      "path": "index.html",
+      "bytes": 46662,
+      "sha256": "00b4ee78a3aea19d919b44d8c711ee318226064410c052d37ed50cc70e3021f7",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    },
+    {
+      "path": "originals/농기계_굴착기면허_소형건설기계조종면허 2.jpeg",
+      "bytes": 196066,
+      "sha256": "22a4c43800a8843fe6138f009f4a7ec7bc59639396949212d6018ac5b06c0c6a",
+      "original": true,
+      "role": "PDF 2쪽 대응 이미지",
+      "originalName": "농기계_굴착기면허_소형건설기계조종면허 2.jpeg"
+    },
+    {
+      "path": "originals/농기계_굴착기면허_소형건설기계조종면허.jpeg",
+      "bytes": 372141,
+      "sha256": "caa47a167ae4414ee3f57fd32ed13d0a2583755a3e4a2f3f1c4ad965c83861c8",
+      "original": true,
+      "role": "PDF 1쪽 대응 이미지",
+      "originalName": "농기계_굴착기면허_소형건설기계조종면허.jpeg"
+    },
+    {
+      "path": "originals/농기계_굴착기면허_소형건설기계조종면허.pdf",
+      "bytes": 331539,
+      "sha256": "111ca4f75bbe571e37098f712a8ddc78f47f80fdc088f2e90430fc809eec8d17",
+      "original": true,
+      "role": "원문 PDF 2쪽",
+      "originalName": "농기계_굴착기면허_소형건설기계조종면허.pdf"
+    },
+    {
+      "path": "previews/page-01.png",
+      "bytes": 152914,
+      "sha256": "1609b2fca538b6b7c14ba544e99d5bc5492f394808e5d5014393002ec39a299d",
+      "original": false,
+      "role": "PDF 미리보기 파생본"
+    },
+    {
+      "path": "previews/page-02.png",
+      "bytes": 79191,
+      "sha256": "ba0d3e6583d819f9731190253a6d851b11b5b25c1405d199bf6b7e1ff884b042",
+      "original": false,
+      "role": "PDF 미리보기 파생본"
+    },
+    {
+      "path": "readme.html",
+      "bytes": 18767,
+      "sha256": "8b6ff1392b214112c7bd73e029dd6c275f580f2144b86f0c989deeeab85d052b",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    },
+    {
+      "path": "source-inventory.csv",
+      "bytes": 1262,
+      "sha256": "de1469350b6cfc947a2b4b463f81230df62225a94b744c6314225c6b16d01109",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    },
+    {
+      "path": "source-transcript.html",
+      "bytes": 8404,
+      "sha256": "5c73451311a60502a6652cf49a0b1506bcb27e333be6a6aba1f767a4607e020c",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    },
+    {
+      "path": "source-transcript.txt",
+      "bytes": 3590,
+      "sha256": "7951f6b6ba013baa3bddb59ff983810493a5b2cb10cd946c47e5e9dfd4c00a89",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    },
+    {
+      "path": "verification-report.md",
+      "bytes": 1503,
+      "sha256": "d35b5a101fec32b3cab1749728952ff2bbc306ad82ed4ed2590ca0a9d2d8bfb0",
+      "original": false,
+      "role": "생성 정리·검증 문서"
+    }
+  ]
+}

@@ -170,7 +170,41 @@
         "audio": 0,
         "documents": 4
       }
+    },
+    {
+      "id": "20261022-farm-excavator-license",
+      "slug": "20261022-farm-excavator-license",
+      "title": "농기계·굴착기면허·소형건설기계조종면허",
+      "listTitle": "농기계·굴착기면허·소형건설기계조종면허",
+      "titleSource": "user-provided-name",
+      "inputName": "농기계_굴착기면허_소형건설기계조종면허",
+      "inputKind": "attachments",
+      "sourceTitle": "농기계 및 굴착기 자격/면허 체계 완벽 정리",
+      "date": "2026-10-22",
+      "dateBasis": "archive_created",
+      "eventDate": null,
+      "kind": "농기계 · 교육·면허",
+      "visibility": "public",
+      "url": "https://softm.github.io/farm/records/20261022-farm-excavator-license/",
+      "repoUrl": "https://github.com/softm/farm/tree/main/records/20261022-farm-excavator-license",
+      "originalImageCount": 2,
+      "originalPhotoCount": 2,
+      "originalDocumentCount": 1,
+      "pdfPageCount": 2,
+      "previewCount": 2,
+      "sourceFileCount": 3,
+      "expectedSourceFileCount": 3,
+      "sourceIntegrityComplete": true,
+      "missingFiles": [],
+      "status": "source-complete",
+      "description": "굴착기 자격증·조종사면허·3톤 미만 교육 경로를 정리하고 원문 확인·정정 사항과 원본 이미지 2장·PDF 1개를 함께 보관합니다.",
+      "files": {
+        "images": 2,
+        "videos": 0,
+        "audio": 0,
+        "documents": 1
+      }
     }
   ],
-  "updatedAt": "2026-10-18T12:50:48.814298+00:00"
+  "updatedAt": "2026-10-22T00:15:30+09:00"
 }
